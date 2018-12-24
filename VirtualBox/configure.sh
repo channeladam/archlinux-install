@@ -4,13 +4,6 @@
 # Configure
 #############
 
-# fstab
-echo "fstab"
-genfstab -U /mnt >> /etc/fstab
-
-# Important: Manually check and edit fstab if necessary
-nano /etc/fstab
-
 # timezone
 echo "timezone"
 ln -sf /usr/share/zoneinfo/Australia/Brisbane /etc/localtime
@@ -23,7 +16,7 @@ hwclock --systohc
 echo "localisation"
 locale-gen
 
-$locale="en_AU"
+locale="en_AU"
 # echo "LANG=en_AU.UTF-8" > /etc/locale.conf
 echo "LANG=$locale.UTF-8" > /etc/locale.conf
 echo "LC_COLLATE=C" >> /etc/locale.conf
@@ -34,7 +27,7 @@ sed -i '/'$locale'.UTF-8/s/^#//g' /etc/locale.gen
 
 # hostname
 echo "hostname"
-$hostname="VLArch"
+hostname="VLArch"
 # echo "VLArch" > /etc/hostname
 echo "$hostname" > /etc/hostname
 
