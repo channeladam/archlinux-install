@@ -18,6 +18,7 @@ parted /dev/sda mktable gpt
 # sgdisk --list-types
 # gdisk's internal code ef02 is for BIOS boot partition - needed for Grub
 sgdisk /dev/sda -n=1:0:+31M -t=1:ef02
+parted /dev/sda set 1 bios_grub on
 
 sgdisk /dev/sda -n=2:0:+511M
 
