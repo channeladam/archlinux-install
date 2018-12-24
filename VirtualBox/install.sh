@@ -67,3 +67,13 @@ swapon /dev/ArchVG/ArchSwap
 # Install base packages
 #############
 pacstrap /mnt base
+
+
+#############
+# fstab
+#############
+echo "fstab"
+genfstab -U /mnt >> /etc/fstab
+
+# Important: Manually check and edit fstab if necessary
+nano /etc/fstab
