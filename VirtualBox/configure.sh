@@ -1,26 +1,15 @@
 #!/bin/bash
 
 #############
-# Mount everything
-#############
-echo "Mounting"
-mount /dev/ArchVG/ArchRoot /mnt
-mkdir /mnt/boot
-mount /dev/sda1 /mnt/boot
-mkdir /mnt/home
-mount /dev/ArchVG/ArchHome /mnt/home
-swapon /dev/ArchVG/ArchSwap
-
-#############
 # Configure
 #############
 
 # fstab
 echo "fstab"
-genfstab -U /mnt >> /mnt/etc/fstab
+genfstab -U /mnt >> /etc/fstab
 
 # Important: Manually check and edit fstab if necessary
-nano /mnt/etc/fstab
+nano /etc/fstab
 
 # timezone
 echo "timezone"
