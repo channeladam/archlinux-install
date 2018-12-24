@@ -73,7 +73,7 @@ pacstrap /mnt base
 # fstab
 #############
 echo "fstab"
-genfstab -U /mnt >> /etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 # Important: Manually check and edit fstab if necessary
 nano /etc/fstab
