@@ -14,7 +14,7 @@ Install script for Arch Linux.
 
 ## Mount and Chroot
 ``` bash
-./chroot.sh
+# ./chroot.sh
 ```
 
 ## Run configure.sh
