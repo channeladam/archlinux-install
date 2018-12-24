@@ -52,7 +52,7 @@ pacman -S intel-ucode
 # Bootloader
 echo "bootloader"
 pacman -S grub
-grub-install /dev/sda
+grub-install -v /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
 
 
