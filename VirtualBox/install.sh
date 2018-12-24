@@ -9,23 +9,26 @@
 # Assuming a VirtualBox disk of size 100GB 
 #############
 
+echo "Creating filesystems"
+
 sgdisk --zap-all
 
 parted /dev/sda mktable gpt
 
 # sgdisk --list-types
-# gdisk's internal code ef02 is for BIOS boot partition
-sgdisk /dev/sda -n=1:0:+511M
-parted /dev/sda set 1 boot on
+# gdisk's internal code ef02 is for BIOS boot partition - needed for Grub
+sgdisk /dev/sda -n=1:0:+31M -t=1:ef02
+
+sgdisk /dev/sda -n=2:0:+511M
+parted /dev/sda set 2 boot on
 
 # gdisk's internal code 8e00 is for Linux LVM
-sgdisk /dev/sda -N=2 -t2:8e00
+sgdisk /dev/sda -N=3 -t3:8e00
 
-vgcreate ArchVG /dev/sda2
+vgcreate ArchVG /dev/sda3
 
 swapsize=$(cat /proc/meminfo | grep MemTotal | awk '{ print $2 }')
 swapsize=$(($swapsize/1000))"M"
-# sgdisk $device -n=3:0:+$swapsize -t=3:8200
 lvcreate -L $swapsize -n ArchSwap ArchVG
 #lvcreate -L 16G -n ArchSwap ArchVG
 mkswap /dev/ArchVG/ArchSwap
@@ -40,11 +43,13 @@ mkfs.ext4 /dev/ArchVG/ArchHome
 #############
 # Update system clock
 #############
+echo "Updating system clock"
 timedatectl set-ntp true
 
 #############
 # Mount everything
 #############
+echo "Mounting"
 mount /dev/ArchVG/ArchRoot /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
@@ -52,26 +57,8 @@ mkdir /mnt/home
 mount /dev/ArchVG/ArchHome /mnt/home
 swapon /dev/ArchVG/ArchSwap
 
+
 #############
 # Install base packages
 #############
 pacstrap /mnt base
-
-#############
-# Configure
-#############
-
-# fstab
-genfstab -U /mnt >> /mnt/etc/fstab
-
-# chroot
-arch-chroot /mnt
-
-# timezone
-ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
-
-# generate /etc/adjtime, assuming UTC hardware clock
-hwclock --systohc
-
-# localisation
-locale-gen
