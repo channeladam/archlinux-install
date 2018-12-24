@@ -21,10 +21,14 @@ sgdisk /dev/sda -n=1:0:+31M -t=1:ef02
 parted /dev/sda set 1 boot on
 
 sgdisk /dev/sda -n=2:0:+511M
-mkfs.ext4 /dev/sda2
 
 # gdisk's internal code 8e00 is for Linux LVM
 sgdisk /dev/sda -N=3 -t3:8e00
+
+
+partprobe
+mkfs.ext4 /dev/sda2
+
 
 vgcreate ArchVG /dev/sda3
 
