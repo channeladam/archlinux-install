@@ -58,9 +58,4 @@ grub-install --target=i386-pc --recheck -v /dev/sda
 mkdir /boot/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
-
-
 echo "done"
-
-# umount -R /mnt
-# reboot
