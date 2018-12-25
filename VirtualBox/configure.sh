@@ -18,20 +18,26 @@ swapon /dev/ArchVG/ArchSwap
 #   WARNING: Device /dev/loop0 not initialized in udev database even after waiting 10000000 microseconds.
 # This happens because the hosts /run directory is not available within chroot.
 #############
+echo "Fixing LVM issue"
 mkdir /mnt/hostlvm
 mount --bind /run/lvm /mnt/hostlvm
-arch-chroot /mnt ln -s /hostlvm /run/lvm
 
 #############
 # Run configure-core.sh in chroot
 #############
+echo "Running configure-core.sh in CHROOT"
 cp configure-core.sh /mnt
 arch-chroot /mnt /bin/bash configure-core.sh
 
 #############
 # Clean up
 #############
-arch-chroot /mnt unlink /run/lvm
+echo "Cleaning up"
 umount /mnt/hostlvm
 rmdir /mnt/hostlvm
 rm /mnt/configure-core.sh
+
+echo "Finished configuration"
+
+# umount -R /mnt
+# reboot
