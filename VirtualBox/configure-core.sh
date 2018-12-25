@@ -52,8 +52,7 @@ passwd
 
 # Bootloader
 echo "bootloader"
-pacstrap /mnt grub
-#pacman -S grub
+pacman -S grub
 grub-install --target=i386-pc --recheck -v /dev/sda
 
 mkdir /boot/grub
