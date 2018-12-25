@@ -1,10 +1,10 @@
 # archlinux-install
 Install script for Arch Linux.
 
-## 1 - Boot into Arch Linux
+## Step 1 - Boot into Arch Linux
 Download ISO from https://www.archlinux.org/download/ and boot into a VirtualBox VM.
 
-## Download these scripts
+## Step 2 - Download these scripts
 At the Arch Linux install console:
 ``` bash
 # wget https://github.com/channeladam/archlinux-install/archive/master.zip
@@ -14,12 +14,12 @@ At the Arch Linux install console:
 # chmod +x *.sh
 ```
 
-## Run install.sh
+## Step 3 - Run install.sh
 ``` bash
 # ./install.sh
 ```
 
-## Run configure.sh
+## Step 4 - Run configure.sh
 ``` bash
 # ./configure.sh
 ```
