@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#############
+echo "Final setup of LVM fix"
 ln -s /hostlvm /run/lvm
 
 #############
