@@ -51,9 +51,13 @@ pacman -S intel-ucode
 
 # Bootloader
 echo "bootloader"
-pacman -S grub
-grub-install -v /dev/sda
+pacstrap /mnt grub
+#pacman -S grub
+grub-install --target=i386-pc --recheck -v /dev/sda
+
+mkdir /boot/grub
 grub-mkconfig -o /boot/grub/grub.cfg
+
 
 
 echo "done"
