@@ -25,3 +25,6 @@ At the Arch Linux install console:
 ``` bash
 # ./configure.sh
 ```
+
+## Step 5 - Reboot
+Dismount the ISO and reboot.
