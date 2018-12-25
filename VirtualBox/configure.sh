@@ -45,9 +45,10 @@ mkinitcpio -p linux
 echo "root password"
 passwd
 
+# No need for microcode in a VM ;)
 # Microcode (do this before bootloader)
-echo "microcode"
-pacman -S intel-ucode
+#echo "microcode"
+#pacman -S intel-ucode
 
 # Bootloader
 echo "bootloader"
