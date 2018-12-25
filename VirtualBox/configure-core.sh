@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ln -s /hostlvm /run/lvm
+
 #############
 # Configure
 #############
@@ -58,4 +60,9 @@ grub-install --target=i386-pc --recheck -v /dev/sda
 mkdir /boot/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
+############
+echo "Cleaning up LVM"
+unlink /run/lvm
+
+############
 echo "done"
