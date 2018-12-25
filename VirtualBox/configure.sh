@@ -31,7 +31,7 @@ arch-chroot /mnt /bin/bash configure-core.sh
 #############
 # Clean up
 #############
-arch-chroot unlink /run/lvm
+arch-chroot /mnt unlink /run/lvm
 umount /mnt/hostlvm
 rmdir /mnt/hostlvm
 rm /mnt/configure-core.sh
