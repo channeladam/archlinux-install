@@ -76,4 +76,4 @@ echo "fstab"
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
 # Important: Manually check and edit fstab if necessary
-nano /etc/fstab
+nano /mnt/etc/fstab
