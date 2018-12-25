@@ -20,6 +20,7 @@ parted /dev/sda mktable gpt
 sgdisk /dev/sda -n=1:0:+1M -t=1:ef02
 #parted /dev/sda set 1 bios_grub on
 
+# /dev/sda2 = /boot
 sgdisk /dev/sda -n=2:0:+511M
 
 # gdisk's internal code 8e00 is for Linux LVM
@@ -32,10 +33,10 @@ mkfs.ext4 /dev/sda2
 
 vgcreate ArchVG /dev/sda3
 
-swapsize=$(cat /proc/meminfo | grep MemTotal | awk '{ print $2 }')
-swapsize=$(($swapsize/1000))"M"
-lvcreate -L $swapsize -n ArchSwap ArchVG
-#lvcreate -L 16G -n ArchSwap ArchVG
+#swapsize=$(cat /proc/meminfo | grep MemTotal | awk '{ print $2 }')
+#swapsize=$(($swapsize/1000))"M"
+#lvcreate -L $swapsize -n ArchSwap ArchVG
+lvcreate -L 16G -n ArchSwap ArchVG
 mkswap /dev/ArchVG/ArchSwap
 
 lvcreate -L 30G -n ArchRoot ArchVG
