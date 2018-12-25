@@ -22,6 +22,7 @@ mount --bind /run/lvm /mnt/hostlvm
 arch-chroot /mnt ln -s /hostlvm /run/lvm
 
 #############
-# Chroot
+# Run configure-core.sh in chroot
 #############
+cp configure-core.sh /mnt
 arch-chroot /mnt /bin/bash configure-core.sh
