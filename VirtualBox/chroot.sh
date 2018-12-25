@@ -10,6 +10,18 @@ mount /dev/ArchVG/ArchHome /mnt/home
 swapon /dev/ArchVG/ArchSwap
 
 #############
+# Fix LVM issue 
+# vgscan -v gives error:
+#   WARNING: Failed to connect to lvmetad. Falling back to device scanning.
+#   Reading all physical volumes. This may take a while...
+#   WARNING: Device /dev/loop0 not initialized in udev database even after waiting 10000000 microseconds.
+# This happens because the hosts /run directory is not available within chroot.
+#############
+mkdir /mnt/hostlvm
+mount --bind /run/lvm /mnt/hostlvm
+arch-chroot /mnt ln -s /hostlvm /run/lvm
+
+#############
 # Chroot
 #############
-arch-chroot /mnt
+arch-chroot /mnt /bin/bash configure-core.sh
