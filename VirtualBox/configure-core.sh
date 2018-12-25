@@ -45,8 +45,13 @@ echo "initramfs"
 mkinitcpio -p linux
 
 # Root password
-echo "root password"
+echo "Change root password"
 passwd
+
+# User
+echo "Add user and change password"
+useradd -mU -s /usr/bin/zsh -G wheel,uucp,video,audio,storage,games,input "adam"
+passwd adam
 
 # No need for microcode in a VM ;)
 # Microcode (do this before bootloader)
