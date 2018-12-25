@@ -11,6 +11,7 @@ swapon /dev/ArchVG/ArchSwap
 
 #############
 # Fix LVM issue 
+# https://bbs.archlinux.org/viewtopic.php?pid=1820949#p1820949
 # vgscan -v gives error:
 #   WARNING: Failed to connect to lvmetad. Falling back to device scanning.
 #   Reading all physical volumes. This may take a while...
