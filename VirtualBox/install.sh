@@ -73,7 +73,7 @@ echo "installing base package with linux-lts"
 pacman -Sg base | cut -d ' ' -f 2 | sed s/\^linux\$/linux-lts/g | pacstrap /mnt - linux-lts-headers
 
 echo "installing other packages"
-pacstrap /mnt base-devel parted net-tools
+pacstrap /mnt base-devel parted gptfdisk net-tools
 
 
 #############
