@@ -40,12 +40,16 @@ echo "127.0.0.1    localhost" > /etc/hosts
 echo "::1          localhost" >> /etc/hosts
 echo "127.0.1.1    VLArch.localdomain    VLArch" >> /etc/hosts
 
+# Network manager
+echo "network manager"
+systemctl enable NetworkManager.service
+
 # DHCP
-echo "enable DHCP"
-WIRED_DEV=`ip link | grep "ens\|eno\|enp" | awk '{print $2}'| sed 's/://' | sed '1!d'`
-if [[ -n $WIRED_DEV ]]; then
-  systemctl enable dhcpcd@${WIRED_DEV}.service
-fi
+#echo "enable DHCP"
+#WIRED_DEV=`ip link | grep "ens\|eno\|enp" | awk '{print $2}'| sed 's/://' | sed '1!d'`
+#if [[ -n $WIRED_DEV ]]; then
+#  systemctl enable dhcpcd@${WIRED_DEV}.service
+#fi
 
 # Initramfs
 echo "initramfs"
