@@ -59,7 +59,7 @@ passwd
 
 # User
 echo "Add user and change password"
-useradd --home-dir /home/adam --create-home -G wheel,uucp,video,audio,storage,games,input -s /usr/bin/zsh adam
+useradd --home-dir /home/adam --create-home -G wheel,uucp,video,audio,storage,games,input adam
 passwd adam
 
 # Sudoers
