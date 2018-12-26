@@ -67,7 +67,7 @@ swapon /dev/ArchVG/ArchSwap
 #############
 # Install base packages
 #############
-pacstrap /mnt base
+pacstrap /mnt base base-devel
 
 
 #############
