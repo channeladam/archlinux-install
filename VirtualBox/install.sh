@@ -67,7 +67,13 @@ swapon /dev/ArchVG/ArchSwap
 #############
 # Install base packages
 #############
-pacstrap /mnt base base-devel
+pacman -Sy
+
+echo "installing base package with linux-lts"
+pacman -Sg base | cut -d ' ' -f 2 | sed s/\^linux\$/linux-lts/g | pacstrap /mnt - linux-lts-headers
+
+echo "installing other packages"
+pacstrap /mnt base-devel parted net-tools
 
 
 #############
