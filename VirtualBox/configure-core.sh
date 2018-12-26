@@ -51,7 +51,8 @@ fi
 echo "initramfs"
 echo 'enabling LVM in mkinitcpio.conf'
 sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /etc/mkinitcpio.conf
-mkinitcpio -p linux-lts
+#mkinitcpio -p linux-lts
+mkinitcpio -p linux
 
 # Root password
 echo "Change root password"
