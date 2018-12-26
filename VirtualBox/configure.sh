@@ -1,4 +1,8 @@
-# See https://wiki.archlinux.org/index.php/installation_guide for more information
+#!/bin/bash
+
+#
+# For more info, see https://wiki.archlinux.org/index.php/installation_guide
+#
 
 #############
 # Mount everything
