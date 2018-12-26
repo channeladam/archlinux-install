@@ -22,3 +22,13 @@ systemctl enable sddm
 
 echo "git"
 pacman -S git
+
+echo "sound"
+# https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture
+echo "options snd-intel8x0 ac97_clock=48000" >> /etc/modprobe.d/alsa-base.conf
+pacman -S alsa-utils alsa-oss alsa-firmware
+amixer sset Master unmute
+amixer sset PCM unmute
+#alsamixer
+pulseaudio -k
+#speaker-test -c 2
