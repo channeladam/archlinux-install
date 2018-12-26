@@ -26,5 +26,24 @@ At the Arch Linux install console:
 # ./configure.sh
 ```
 
-## Step 5 - Reboot
+## Step 5 - Run install-kde.sh
+``` bash
+# ./install-kde.sh
+```
+
+## Step 6 - Run install-pamac.sh
+``` bash
+# sudo -u adam bash
+$ ./install-pamac.sh
+$ exit
+```
+
+## Step 7 - Run install-apps.sh
+``` bash
+# ./install-apps.sh
+# exit
+```
+
+## Step 8 - Reboot into KDE
 Dismount the ISO and reboot.
+Login as a non-root user
