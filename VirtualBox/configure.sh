@@ -1,3 +1,5 @@
+# See https://wiki.archlinux.org/index.php/installation_guide for more information
+
 #############
 # Mount everything
 #############
