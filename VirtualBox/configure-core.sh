@@ -1,6 +1,6 @@
 #!/bin/bash
 #############
-echo "Final setup of LVM fix"
+echo "Final setup to fix LVM in CHROOT"
 ln -s /hostlvm /run/lvm
 
 #############
@@ -24,7 +24,7 @@ locale="en_AU"
 echo "LANG=$locale.UTF-8" > /etc/locale.conf
 echo "LC_COLLATE=C" >> /etc/locale.conf
 
-# comment out all other locales from locale.gen
+# uncomment our locale in locale.gen
 # sed -i '/'en_AU'.UTF-8/s/^#//g' /etc/locale.gen
 sed -i '/'$locale'.UTF-8/s/^#//g' /etc/locale.gen
 
@@ -40,9 +40,18 @@ echo "127.0.0.1    localhost" > /etc/hosts
 echo "::1          localhost" >> /etc/hosts
 echo "127.0.1.1    VLArch.localdomain    VLArch" >> /etc/hosts
 
+# DHCP
+echo "enable DHCP"
+WIRED_DEV=`ip link | grep "ens\|eno\|enp" | awk '{print $2}'| sed 's/://' | sed '1!d'`
+if [[ -n $WIRED_DEV ]]; then
+  systemctl enable dhcpcd@${WIRED_DEV}.service
+fi
+
 # Initramfs
 echo "initramfs"
-mkinitcpio -p linux
+echo 'enabling LVM in mkinitcpio.conf'
+sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /etc/mkinitcpio.conf
+mkinitcpio -p linux-lts
 
 # Root password
 echo "Change root password"
@@ -50,8 +59,12 @@ passwd
 
 # User
 echo "Add user and change password"
-useradd -mU -s /usr/bin/zsh -G wheel,uucp,video,audio,storage,games,input "adam"
+useradd --home-dir /home/adam --create-home -G wheel,uucp,video,audio,storage,games,input -s /usr/bin/zsh adam
 passwd adam
+
+# Sudoers
+echo "Adding wheel group to /etc/sudoers"
+echo "%wheel ALL=(ALL) ALL" | (EDITOR="tee -a" visudo)
 
 # No need for microcode in a VM ;)
 # Microcode (do this before bootloader)
@@ -59,10 +72,14 @@ passwd adam
 #pacman -S intel-ucode
 
 # Bootloader
-echo "bootloader"
+echo "install bootloader"
 pacman -S grub
 grub-install --target=i386-pc --recheck -v /dev/sda
 
+echo "enable lvm in grub"
+sed -i '/^GRUB_PRELOAD_MODULES/s/part_msdos\"/part_msdos lvm\"/' /etc/default/grub
+
+echo "generate grub config file"
 mkdir /boot/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 
