@@ -11,5 +11,15 @@ echo "system updater tray icon"
 echo "kalu"
 pikaur -S kalu
 
+echo "firewall"
+pacman -S ufw gufw
+
 echo "apps"
-pacman -S chromium firefox code nodejs docker
+pacman -S chromium firefox code nodejs docker 
+
+echo "openssh"
+# https://wiki.archlinux.org/index.php/OpenSSH
+pacman -S openssh
+systemctl enable sshd.socket
+systemctl start sshd.socket
+# ss --tcp --listening | grep ssh
