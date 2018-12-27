@@ -14,8 +14,16 @@ pikaur -S kalu
 echo "firewall"
 pacman -S ufw gufw
 
-echo "apps"
-pacman -S chromium firefox code nodejs docker 
+echo "misc apps"
+pacman -S chromium firefox code nodejs 
+
+echo "docker"
+pacman -S docker 
+groupadd docker
+usermod -aG docker adam
+echo "You will need to sign-out and sign-in for the group membership to take effect"
+systemctl enable docker
+systemctl start docker
 
 echo "openssh"
 # https://wiki.archlinux.org/index.php/OpenSSH
