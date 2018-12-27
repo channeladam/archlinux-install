@@ -15,13 +15,13 @@ echo "firewall"
 pacman -S ufw gufw
 
 echo "misc apps"
-pacman -S chromium firefox code nodejs 
+pacman -S chromium firefox code nodejs npm
 
 echo "docker"
 pacman -S docker 
 groupadd docker
 usermod -aG docker adam
-echo "You will need to sign-out and sign-in for the group membership to take effect"
+echo "You will need to sign-out and sign-in for the group membership to take effect and run docker without sudo"
 systemctl enable docker
 systemctl start docker
 
