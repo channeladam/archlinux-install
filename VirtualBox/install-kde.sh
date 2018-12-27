@@ -4,7 +4,8 @@ echo "installing xorg"
 pacman -S xorg
 
 echo "installing virtualbox guest additions"
-pacman -S virtualbox-guest-modules-arch virtualbox-guest-utils
+# https://wiki.archlinux.org/index.php/VirtualBox#Install_the_Guest_Additions
+pacman -S virtualbox-guest-dkms virtualbox-guest-utils
 
 echo "installing vmware video driver - assuming you are using the VirtualBox VMSVGA display"
 # Assuming the use of the VMSVGA display driver in VirtualBox 6
@@ -19,6 +20,8 @@ pacman -S plasma kdebase-meta
 echo "display manager"
 pacman -S sddm
 systemctl enable sddm
+# pacman -S lightdm
+# systemctl enable lightdm
 
 echo "git"
 pacman -S git
