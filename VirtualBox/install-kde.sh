@@ -6,6 +6,8 @@ pacman -S xorg
 echo "installing virtualbox guest additions"
 # https://wiki.archlinux.org/index.php/VirtualBox#Install_the_Guest_Additions
 pacman -S virtualbox-guest-dkms virtualbox-guest-utils
+# systemctl enable vboxservice
+usermod -a -G vboxsf adam
 
 echo "installing vmware video driver - assuming you are using the VirtualBox VMSVGA display"
 # Assuming the use of the VMSVGA display driver in VirtualBox 6
