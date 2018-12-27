@@ -76,7 +76,7 @@ pacman -Sg base | cut -d ' ' -f 2 | sed s/\^linux\$/linux-lts/g | pacstrap /mnt 
 #pacstrap /mnt base
 
 echo "installing other packages"
-pacstrap /mnt base-devel parted gptfdisk iproute2
+pacstrap /mnt base-devel parted gptfdisk iproute2 bind-tools
 
 
 #############
