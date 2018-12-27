@@ -76,7 +76,7 @@ echo "installing base package with latest linux"
 pacstrap /mnt base
 
 echo "installing other packages"
-pacstrap /mnt base-devel parted gptfdisk net-tools
+pacstrap /mnt base-devel parted gptfdisk iproute2
 
 
 #############
