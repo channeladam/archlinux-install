@@ -69,11 +69,11 @@ swapon /dev/ArchVG/ArchSwap
 #############
 pacman -Sy
 
-#echo "installing base package with linux-lts"
-#pacman -Sg base | cut -d ' ' -f 2 | sed s/\^linux\$/linux-lts/g | pacstrap /mnt - linux-lts-headers
+echo "installing base package with linux-lts"
+pacman -Sg base | cut -d ' ' -f 2 | sed s/\^linux\$/linux-lts/g | pacstrap /mnt - linux-lts-headers
 
-echo "installing base package with latest linux"
-pacstrap /mnt base
+#echo "installing base package with latest linux"
+#pacstrap /mnt base
 
 echo "installing other packages"
 pacstrap /mnt base-devel parted gptfdisk iproute2
