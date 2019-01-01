@@ -25,8 +25,9 @@ systemctl enable sddm
 # pacman -S lightdm
 # systemctl enable lightdm
 
-echo "git"
-pacman -S git
+echo "git & kwallet"
+pacman -S git ksshaskpass kwalletmanager
+git config --global core.askpass /usr/bin/ksshaskpass
 
 echo "sound"
 # https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture
