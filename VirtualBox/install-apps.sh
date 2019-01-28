@@ -15,7 +15,7 @@ echo "firewall"
 pacman -S ufw gufw
 
 echo "misc apps"
-pacman -S chromium firefox code nodejs npm
+pacman -S chromium firefox code nodejs npm hunspell hunspell-en_AU spectacle
 
 echo "docker"
 pacman -S docker 
