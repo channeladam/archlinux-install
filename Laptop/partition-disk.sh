@@ -10,23 +10,20 @@ echo "Creating filesystems"
 
 parted /dev/sda mktable gpt
 
+# /dev/sda1 = /boot (EFI System)
 # sgdisk --list-types
-# gdisk's internal code ef02 is for BIOS boot partition - needed for Grub doing a BIOS/GPT configuration
-sgdisk /dev/sda -n=1:0:+1M -t=1:ef02
-#parted /dev/sda set 1 bios_grub on
-
-# /dev/sda2 = /boot
-sgdisk /dev/sda -n=2:0:+511M
+# gdisk's internal code ef00 is for EFI System - boot, esp
+sgdisk /dev/sda -n=1:0:+512M -t=1:ef00
 
 # gdisk's internal code 8e00 is for Linux LVM
-sgdisk /dev/sda -N=3 -t3:8e00
+sgdisk /dev/sda -N=2 -t2:8e00
 
 
 partprobe
-mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda1
 
 
-vgcreate ArchVG /dev/sda3
+vgcreate ArchVG /dev/sda2
 
 #swapsize=$(cat /proc/meminfo | grep MemTotal | awk '{ print $2 }')
 #swapsize=$(($swapsize/1000))"M"
