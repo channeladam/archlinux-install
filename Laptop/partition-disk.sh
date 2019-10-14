@@ -20,7 +20,7 @@ sgdisk /dev/sda -N=2 -t2:8e00
 
 
 partprobe
-mkfs.ext4 /dev/sda1
+mkfs.vfat /dev/sda1
 
 
 vgcreate ArchVG /dev/sda2
