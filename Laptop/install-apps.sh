@@ -7,8 +7,18 @@ pacman -Syu libvirt qemu samba virt-manager ebtables dnsmasq bridge-utils
 systemctl start libvirtd
 systemctl enable libvirtd
 
+# Set the default virtual network to start automatically
+virsh net-autostart default
+
+
+
 # VM Client
 pacman -S remmina freerdp
+
+pacman -S util-linux smartmontools
+
+# code slack-desktop firefox libre-office-still wps-office-stable inkscape krita 
+# evolution evolution-ews
 
 
 
