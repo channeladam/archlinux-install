@@ -17,7 +17,7 @@ pacman -S remmina freerdp
 
 pacman -S util-linux smartmontools
 
-# code slack-desktop firefox libre-office-still wps-office-stable inkscape krita 
+# code slack-desktop firefox freeoffice inkscape krita 
 # evolution evolution-ews
 
 
