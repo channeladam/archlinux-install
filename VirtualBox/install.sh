@@ -70,7 +70,7 @@ swapon /dev/ArchVG/ArchSwap
 pacman -Sy
 
 echo "installing base package with linux-lts"
-pacman -Sg base | cut -d ' ' -f 2 | sed s/\^linux\$/linux-lts/g | pacstrap /mnt - linux-lts-headers
+pacstrap /mnt base linux-lts linux-lts-headers linux-firmware
 
 #echo "installing base package with latest linux"
 #pacstrap /mnt base
