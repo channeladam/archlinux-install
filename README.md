@@ -32,31 +32,28 @@ At the Arch Linux install console:
 # ./configure.sh
 ```
 
-## Step 7- Reboot
-```bash
-# reboot
-```
-
-## Step 8 - Run install-kde.sh or install-xfce.sh
+## Step 7 - Run install-kde.sh or install-xfce.sh
 ``` bash
-# ./install-kde.sh
+# arch-chroot /mnt /bin/bash install-kde.sh
 or
-# ./install-xfce.sh
+# arch-chroot /mnt /bin/bash install-xfce.sh
 ```
 
-## Step 9 - Run install-pamac.sh
+## Step 8 - Run install-pamac.sh
 ``` bash
+# arch-chroot /mnt /bin/bash
 # sudo -u adam bash
 $ ./install-pamac.sh
 $ exit
 ```
 
-## Step 10 - Run install-apps.sh
+## Step 9 - Run install-apps.sh
 ``` bash
+# arch-chroot /mnt /bin/bash
 # ./install-apps.sh
 # exit
 ```
 
-## Step 11 - Reboot into KDE
+## Step 10 - Reboot into KDE
 Dismount the ISO and reboot.
 Login as a non-root user
