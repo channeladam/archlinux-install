@@ -4,6 +4,7 @@ echo "NOTE: This must be run AFTER install-pamac.sh"
 
 echo "AUR package manager - pikaur"
 pamac build pikaur
+#pamac build yay
 
 echo "system updater tray icon"
 #echo "pamac-tray-appindicator"
