@@ -16,7 +16,10 @@ echo "firewall"
 pacman -S ufw gufw
 
 echo "misc apps"
-pacman -S firefox nodejs npm hunspell hunspell-en_AU spectacle
+pacman -S tilix firefox nodejs npm hunspell hunspell-en_AU 
+
+#echo "screen snapshot - KDE"
+#pacman -S spectacle
 
 pikaur -S google-chrome visual-studio-code-bin
 
