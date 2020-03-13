@@ -41,7 +41,7 @@ or
 
 ## Step 8 - Run install-pamac.sh
 ``` bash
-# arch-chroot /mnt /bin/bash
+# arch-chroot /mnt
 # sudo -u adam bash
 $ ./install-pamac.sh
 $ exit
@@ -49,7 +49,7 @@ $ exit
 
 ## Step 9 - Run install-apps.sh
 ``` bash
-# arch-chroot /mnt /bin/bash
+# arch-chroot /mnt
 # ./install-apps.sh
 # exit
 ```
