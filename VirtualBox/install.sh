@@ -76,7 +76,7 @@ pacstrap /mnt base linux-lts linux-lts-headers linux-firmware
 #pacstrap /mnt base
 
 echo "installing other packages"
-pacstrap /mnt base-devel parted gptfdisk iproute2 bind-tools
+pacstrap /mnt base-devel parted gptfdisk iproute2 bind-tools networkmanager
 
 
 #############
