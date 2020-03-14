@@ -21,8 +21,8 @@ pacman -S tilix firefox nodejs npm hunspell hunspell-en_AU
 #echo "screen snapshot - KDE"
 #pacman -S spectacle
 
-echo "Gnome system monitor"
-pacman -S gnome-system-monitor
+echo "Gnome tools"
+pacman -S gnome-system-monitor gnome-calculator
 
 echo "AUR - Google chrome and VS Code"
 pikaur -S google-chrome visual-studio-code-bin
