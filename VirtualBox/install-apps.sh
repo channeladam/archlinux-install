@@ -22,7 +22,7 @@ pacman -S tilix firefox nodejs npm hunspell hunspell-en_AU
 #pacman -S spectacle
 
 echo "Gnome tools"
-pacman -S gnome-system-monitor gnome-calculator
+pacman -S gnome-system-monitor gnome-calculator gnome-screenshot
 
 echo "AUR - Google chrome and VS Code"
 pikaur -S google-chrome visual-studio-code-bin
