@@ -54,6 +54,6 @@ $ exit
 # exit
 ```
 
-## Step 10 - Reboot into KDE
+## Step 10 - Reboot
 Dismount the ISO and reboot.
 Login as a non-root user
