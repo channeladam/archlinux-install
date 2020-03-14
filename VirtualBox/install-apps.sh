@@ -4,7 +4,7 @@ echo "NOTE: This must be run AFTER install-pamac.sh"
 
 echo "AUR package manager - pikaur"
 pamac build pikaur
-#pamac build yay
+pamac build yay
 
 echo "system updater tray icon"
 #echo "pamac-tray-appindicator"
@@ -21,6 +21,10 @@ pacman -S tilix firefox nodejs npm hunspell hunspell-en_AU
 #echo "screen snapshot - KDE"
 #pacman -S spectacle
 
+echo "Gnome system monitor"
+pacman -S gnome-system-monitor
+
+echo "AUR - Google chrome and VS Code"
 pikaur -S google-chrome visual-studio-code-bin
 
 echo "docker"
@@ -34,6 +38,6 @@ systemctl start docker
 echo "openssh"
 # https://wiki.archlinux.org/index.php/OpenSSH
 pacman -S openssh
-systemctl enable sshd.socket
-systemctl start sshd.socket
+systemctl enable sshd.service
+systemctl start sshd.service
 # ss --tcp --listening | grep ssh
