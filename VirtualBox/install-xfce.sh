@@ -19,7 +19,7 @@ echo "installing xfce4"
 pacman -S xfce4 
 
 echo "installing some of the xfce goodies"
-pacman -S thunar-archive-plugin xfce4-battery-plugin xfce4-clipman-plugin xfce4-cpugraph-plugin xfce4-datetime-plugin xfce4-diskperf-plugin xfce4-mount-plugin xfce4-notifyd xfce4-screensaver xfce4-systemload-plugin xfce4-taskmanager xfce4-whiskermenu-plugin xfce4-artwork
+pacman -S thunar-archive-plugin thunar-volman xfce4-battery-plugin xfce4-clipman-plugin xfce4-cpugraph-plugin xfce4-datetime-plugin xfce4-diskperf-plugin xfce4-mount-plugin xfce4-notifyd xfce4-screensaver xfce4-systemload-plugin xfce4-taskmanager xfce4-whiskermenu-plugin xfce4-artwork
 pacman -S xfce4-power-manager
 
 echo "install materia theme"
