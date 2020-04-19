@@ -29,7 +29,7 @@ echo "install breeze theme and icons - primarily for the Breeze Dark icons"
 pacman -S breeze-gtk breeze-icons
 
 echo "install lightdm display manager"
-pacman -S lightdm lightdm-gtk-greeter
+pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings
 systemctl enable lightdm
 
 echo "install git"
