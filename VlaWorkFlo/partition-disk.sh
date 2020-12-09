@@ -32,7 +32,7 @@ echo "NOTE: a 256Gb disk will take ~20 minutes"
 dd bs=10M status=progress if=/dev/urandom of=/dev/nvme0n1p3
 
 echo "Creating file systems for ESP and Bootloader"
-mkfs.vfat /dev/nvme0n1p1 -L esp
+mkfs.vfat /dev/nvme0n1p1 -n esp
 mkfs.ext4 /dev/nvme0n1p2 -L bootloader
 
 echo "Creating LUKS container for encrypted partition."
