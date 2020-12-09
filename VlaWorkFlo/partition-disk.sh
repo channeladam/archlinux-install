@@ -9,16 +9,16 @@ parted /dev/nvme0n1 mktable gpt
 
 echo "Creating partitions"
 
-## /dev/nvme0n11 = EFI System Partition (ESP)
+## /dev/nvme0n1p1 = EFI System Partition (ESP)
 ## sgdisk --list-types
 ## gdisk's internal code ef00 is for EFI System - boot, esp
 sgdisk /dev/nvme0n1 -n=1:0:+512M -t=1:ef00
 
-## /dev/nvme0n12 = Bootloader (e.g. GRUB) mounted at /boot
+## /dev/nvme0n1p2 = Bootloader (e.g. GRUB) mounted at /boot
 ## gdisk internal code 8300 is for any linux file system
 sgdisk /dev/nvme0n1 -n=2:513M:+512M -t=2:8300
 
-## /dev/nvme0n13 = Encrypted Partition
+## /dev/nvme0n1p3 = Encrypted Partition
 ## gdisk's internal code 8309 is for Linux LUKS (encryption)
 sgdisk /dev/nvme0n1 -N=3 -t3:8e00
 
@@ -26,22 +26,22 @@ partprobe
 
 echo "Performing random wipe on partition to be encrypted."
 echo "NOTE: a 256Gb disk will take ~20 minutes"
-dd bs=10M status=progress if=/dev/urandom of=/dev/nvme0n13
+dd bs=10M status=progress if=/dev/urandom of=/dev/nvme0n1p3
 
 echo "Creating file systems for ESP and Bootloader"
-mkfs.vfat /dev/nvme0n11 -L esp
-mkfs.ext4 /dev/nvme0n12 -L bootloader
+mkfs.vfat /dev/nvme0n1p1 -L esp
+mkfs.ext4 /dev/nvme0n1p2 -L bootloader
 
 echo "Creating LUKS container for encrypted partition."
 echo "You will need to enter 'YES' and a passphrase."
-cryptsetup luksFormat /dev/nvme0n13
+cryptsetup luksFormat /dev/nvme0n1p3
 #Enter "YES"
 #Enter passphrase
 
 echo "Opening encrypted container."
 echo "You will need to enter the passphrase."
 # Becomes available at /dev/mapper/crypt-sda3
-cryptsetup luksOpen /dev/nvme0n13 crypt-sda3
+cryptsetup luksOpen /dev/nvme0n1p3 crypt-sda3
 
 echo "Creating the LVM group and volumes within the encrypted container."
 vgcreate ArchVG /dev/mapper/crypt-sda3
