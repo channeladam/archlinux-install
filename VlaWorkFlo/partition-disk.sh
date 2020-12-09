@@ -4,6 +4,9 @@
 # Setup a 500GB (465GB real) disk with encryption and LVM
 #############
 
+echo "Removing any existing partitions"
+sgdisk -Z /dev/nvme0n1
+
 echo "Creating GPT partition table"
 parted /dev/nvme0n1 mktable gpt
 
@@ -40,11 +43,11 @@ cryptsetup luksFormat /dev/nvme0n1p3
 
 echo "Opening encrypted container."
 echo "You will need to enter the passphrase."
-# Becomes available at /dev/mapper/crypt-sda3
-cryptsetup luksOpen /dev/nvme0n1p3 crypt-sda3
+# Becomes available at /dev/mapper/crypt-nvme0n1p3
+cryptsetup luksOpen /dev/nvme0n1p3 crypt-nvme0n1p3
 
 echo "Creating the LVM group and volumes within the encrypted container."
-vgcreate ArchVG /dev/mapper/crypt-sda3
+vgcreate ArchVG /dev/mapper/crypt-nvme0n1p3
 
 #swapsize=$(cat /proc/meminfo | grep MemTotal | awk '{ print $2 }')
 #swapsize=$(($swapsize/1000))"M"
