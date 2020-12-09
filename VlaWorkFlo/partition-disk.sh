@@ -16,7 +16,7 @@ sgdisk /dev/nvme0n1 -n=1:0:+512M -t=1:ef00
 
 ## /dev/nvme0n12 = Bootloader (e.g. GRUB) mounted at /boot
 ## gdisk internal code 8300 is for any linux file system
-sgdisk /dev/nvme0n1 -n=2:512M:+512M -t=2:8300
+sgdisk /dev/nvme0n1 -n=2:513M:+512M -t=2:8300
 
 ## /dev/nvme0n13 = Encrypted Partition
 ## gdisk's internal code 8309 is for Linux LUKS (encryption)
