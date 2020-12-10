@@ -58,8 +58,10 @@ mkswap /dev/ArchVG/ArchSwap
 lvcreate -L 128G -n ArchRoot ArchVG
 mkfs.ext4 /dev/ArchVG/ArchRoot
 
-lvcreate -l 100%FREE -n ArchHome ArchVG
-#lvcreate -L 286G -n ArchHome ArchVG
+#lvcreate -l 100%FREE -n ArchHome ArchVG
+# NOTE: We want to leave space for snapshots, so do not use 100% of the Volume Group
+# With 200G for home on a 500G disk, there will be ~90G remaining for snapshots
+lvcreate -L 200G -n ArchHome ArchVG
 mkfs.ext4 /dev/ArchVG/ArchHome
 
 echo "This is how it looks:"
