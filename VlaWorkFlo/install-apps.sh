@@ -27,6 +27,9 @@ sudo pacman -S --noconfirm downgrade
 # Utilities
 #########################
 
+# Bluetooth tools
+sudo pacman -S --noconfirm manjaro-bluetooth
+
 # Antivirus
 sudo pacman -S --noconfirm clamav clamtk
 yay -S --noconfirm thunar-sendto-clamtk
@@ -83,7 +86,10 @@ virsh net-autostart default
 #########################
 # Internet & Communications
 #########################
-flatpak install -y flathub  org.mozilla.firefox
+
+# Use pacman for firefox instead of flatpak due to keepass plugin
+sudo pacman -S firefox
+
 yay -S --noconfirm google-chrome
 
 flatpak install -y flathub flathub com.slack.Slack
@@ -96,32 +102,6 @@ sudo pacman -S --noconfirm thunderbird
 yay -S --noconfirm thunderbird-tvsync
 # O365 / Exchange functionality
 flatpak install -y flathub org.davmail.DavMail
-
-
-
-#########################
-# A/V
-#########################
-
-# Spotify
-flatpak install -y flathub com.spotify.Client
-
-# VLC
-flatpak install -y flathub org.videolan.VLC
-
-
-#########################
-# Graphics
-#########################
-flatpak install -y flathub org.kde.krita
-flatpak install -y flathub org.inkscape.Inkscape
-
-
-#########################
-# Office
-#########################
-
-flatpak install -y flathub org.libreoffice.LibreOffice
 
 
 #########################
@@ -146,15 +126,32 @@ yay -S --noconfirm visual-studio-code-bin
 # Postman
 flatpak install -y flathub com.getpostman.Postman
 
+# Azure Artifacts Credential Provider
+# https://github.com/microsoft/artifacts-credprovider#azure-artifacts-credential-provider
+# Used indirectly with "dotnet restore --interactive"
+wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+
 # Azure Tools
+yay -S --noconfirm azure-cli
 yay -S --noconfirm azuredatastudio
 yay -S --noconfirm azure-functions-core-tools-bin
+yay -S --noconfirm storageexplorer
+yay -S --noconfirm bicep-bin
 
 # Python
 sudo pacman -S --noconfirm python python-pip
 sudo pacman -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv
 pip install --upgrade pip
+
+# Kubectl, kubectx and kubens
+sudo pacman -S --noconfirm kubectl kubectx
+
+# Helm
+sudo pacman -S --noconfirm helm
+
+# Minikube
+sudo pacman -S --noconfirm minikube
 
 # Docker
 sudo pacman -S --noconfirm docker
@@ -163,3 +160,34 @@ sudo groupadd docker
 sudo usermod -aG docker adam
 sudo newgrp docker
 sudo systemctl enable --now docker
+
+# nodejs
+sudo pacman -S --noconfirm nodejs
+
+
+#########################
+# A/V
+#########################
+
+# Spotify
+flatpak install -y flathub com.spotify.Client
+
+# Deezer
+yay -S --noconfirm deezer
+
+# VLC
+flatpak install -y flathub org.videolan.VLC
+
+
+#########################
+# Graphics
+#########################
+flatpak install -y flathub org.kde.krita
+flatpak install -y flathub org.inkscape.Inkscape
+
+
+#########################
+# Office
+#########################
+
+flatpak install -y flathub org.libreoffice.LibreOffice
