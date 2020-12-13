@@ -60,7 +60,7 @@ sudo pacman -S --noconfirm backintime
 sudo pacman -S --noconfirm tilix
 
 # System Monitoring
-sudo pacman -S --noconfirm bashtop stacer htop gnome-system-monitor
+sudo pacman -S --noconfirm xfce4-systemload-plugin bashtop stacer htop gnome-system-monitor
 
 # Calculator
 flatpak install -y flathub org.gnome.Calculator
@@ -84,6 +84,7 @@ virsh net-autostart default
 # Internet & Communications
 #########################
 flatpak install -y flathub  org.mozilla.firefox
+yay -S --noconfirm google-chrome
 
 flatpak install -y flathub flathub com.slack.Slack
 flatpak install -y flathub com.discordapp.Discord
@@ -135,6 +136,9 @@ yay -S --noconfirm github-desktop-bin
 
 # .NET
 yay -S --noconfirm dotnet-sdk-bin aspnet-runtime-bin
+
+# PowerShell
+yay -S --noconfirm powershell-bin
 
 # VSCode - the official MS version is required (as opposed to OSS ‘code’) in order to be able to debug
 yay -S --noconfirm visual-studio-code-bin
