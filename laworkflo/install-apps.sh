@@ -47,8 +47,8 @@ flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme.Mate
 # KVM - Barrier
 flatpak install -y flathub com.github.debauchee.barrier
 
-# GParted
-sudo pacman -S --noconfirm gparted dosfstools mtools
+# Partition Tools
+sudo pacman -S --noconfirm gparted dosfstools mtools partclone
 
 # Trash-cli
 sudo pacman -S --noconfirm trash-cli
@@ -99,7 +99,6 @@ flatpak install -y flathub us.zoom.Zoom
 
 # Thunderbird and calendar integration
 sudo pacman -S --noconfirm thunderbird 
-yay -S --noconfirm thunderbird-tvsync
 # O365 / Exchange functionality
 flatpak install -y flathub org.davmail.DavMail
 
