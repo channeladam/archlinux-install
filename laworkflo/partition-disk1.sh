@@ -51,6 +51,8 @@ echo "You will need to enter the passphrase."
 # Becomes available at /dev/mapper/crypt-nvme0n1p3
 cryptsetup luksOpen ${DEVICE_PARTITION_PREFIX_PATH}3 crypt-${DEVICE_PARTITION_NAME_PREFIX}3
 
+# Using the LVM on LUKS approach.
+# https://wiki.archlinux.org/index.php/Dm-crypt/Swap_encryption#LVM_on_LUKS
 echo "Creating the LVM group and volumes within the encrypted container."
 vgcreate ArchVG /dev/mapper/crypt-${DEVICE_PARTITION_NAME_PREFIX}3
 

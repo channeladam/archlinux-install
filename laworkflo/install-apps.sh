@@ -42,6 +42,7 @@ flatpak install -y flathub org.remmina.Remmina
 
 # Materia Dark Theme
 sudo pacman -S --noconfirm materia-gtk-theme
+# Flatpak themes must be exactly the same as currently configured on the host...
 flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme.Materia-dark-compact
 
 # KVM - Barrier
@@ -153,6 +154,7 @@ sudo pacman -S --noconfirm helm
 sudo pacman -S --noconfirm minikube
 
 # Docker
+# See https://docs.docker.com/install/linux/linux-postinstall/
 sudo pacman -S --noconfirm docker
 # Configure docker so that it doesn’t need to run as root:
 sudo groupadd docker
