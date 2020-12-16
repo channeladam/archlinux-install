@@ -43,10 +43,11 @@ flatpak install -y flathub org.remmina.Remmina
 # Materia Dark Theme
 sudo pacman -S --noconfirm materia-gtk-theme
 # Flatpak themes must be exactly the same as currently configured on the host...
-flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme.Materia-dark-compact
+# sudo is needed for flatpak themes apparently.
+sudo flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme.Materia-dark-compact
 
-# KVM - Barrier
-flatpak install -y flathub com.github.debauchee.barrier
+# KVM - Barrier - need via pacman to have config file loaded correctly on a client
+sudo pacman -S barrier
 
 # Partition Tools
 sudo pacman -S --noconfirm gparted dosfstools mtools partclone
