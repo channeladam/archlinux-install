@@ -44,4 +44,5 @@ lvdisplay
 #
 # umount /mnt/Backups
 # umount /mnt/VirtualMachines
+# vgchange -an Disk2VG
 # cryptsetup luksClose crypt-${DEVICE_PARTITION_NAME_PREFIX}1
