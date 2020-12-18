@@ -22,6 +22,10 @@ flatpak install -y flathub flatseal
 
 sudo pacman -S --noconfirm downgrade
 
+# Make websites appear as their own apps - https://github.com/linuxmint/webapp-manager
+# Use with Chromium, not FireFox! (buggy)
+yay -S --noconfirm webapp-manager
+
 
 #########################
 # Utilities
@@ -90,7 +94,8 @@ virsh net-autostart default
 #########################
 
 # Use pacman for firefox instead of flatpak due to keepass plugin
-sudo pacman -S firefox
+# Use pacman for chromium instead of flatpak due to webapp manager
+sudo pacman -S --noconfirm firefox chromium
 
 yay -S --noconfirm google-chrome
 
