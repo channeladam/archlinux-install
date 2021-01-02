@@ -168,6 +168,17 @@ sudo usermod -aG docker adam
 sudo newgrp docker
 sudo systemctl enable --now docker
 
+# Docker credential helper - secretservice
+# https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+# https://github.com/docker/docker-credential-helpers
+# Then you can do a "docker login" with the credentials stored securely.
+yay -S --noconfirm docker-credential-secretservice
+cat <<EOF > ~/.docker/config.json
+{
+  "credsStore": "secretservice"
+}
+EOF
+
 # nodejs
 sudo pacman -S --noconfirm nodejs
 
