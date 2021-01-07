@@ -20,6 +20,13 @@ sudo systemctl enable --now fstrim.timer
 sudo pacman -S --noconfirm flatpak pamac-flatpak-plugin
 flatpak install -y flathub flatseal
 
+# App-Outlet AppImage https://app-outlet.github.io/
+mkdir -p /home/adam/Applications/
+export filename=$(curl -sI https://appoutlet.herokuapp.com/download/appimage | grep 'Location:' | sed -E 's/.*\/releases\/download\/v.*\/(\S*).*$/\1/')
+curl -JLO https://appoutlet.herokuapp.com/download/appimage -o /home/adam/Applications/$filename
+chmod +x ./$filename
+
+# Downgrade
 sudo pacman -S --noconfirm downgrade
 
 # Make websites appear as their own apps - https://github.com/linuxmint/webapp-manager
