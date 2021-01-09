@@ -42,7 +42,15 @@ rsync -aPh /home/adam/.davmail.properties $BACKUP_ROOT/adam/.davmail.properties
 
 echo "Backing up Documents"
 rsync -aPh \
---exclude *.bak \
+--exclude .git/ \
+--exclude obj/ \
+--exclude bin/ \
+--exclude node_modules/ \
+--exclude **/*.log \
+--exclude **/*.bak \
+--exclude **/*.ldf \
+--exclude **/*.mdf \
+--exclude **/*.ndf \
 /home/adam/Documents/ $BACKUP_ROOT/adam/Documents
 
 echo "Backing up scripts"
