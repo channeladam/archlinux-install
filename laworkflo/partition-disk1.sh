@@ -28,7 +28,7 @@ sgdisk $DEVICE_PATH -n=2:513M:+512M -t=2:8300
 
 ## /dev/nvme0n1p3 = Encrypted Partition
 ## gdisk's internal code 8309 is for Linux LUKS (encryption)
-sgdisk $DEVICE_PATH -N=3 -t3:8e00
+sgdisk $DEVICE_PATH -N=3 -t3:8309
 
 partprobe
 

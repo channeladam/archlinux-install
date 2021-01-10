@@ -16,7 +16,8 @@ echo "Creating GPT partition table"
 parted $DEVICE_PATH mktable gpt
 
 echo "Creating partitions"
-sgdisk $DEVICE_PATH -N=1 -t1:8e00 
+## gdisk's internal code 8309 is for Linux LUKS (encryption)
+sgdisk $DEVICE_PATH -N=1 -t1:8309 
 partprobe
 dd bs=100M status=progress if=/dev/urandom of=$DEVICE_PARTITION_PREFIX_PATH
 
