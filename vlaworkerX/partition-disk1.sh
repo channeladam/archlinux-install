@@ -24,23 +24,29 @@ parted $DEVICE_PATH mktable gpt
 
 echo "Creating partitions"
 
-## /dev/sda1 = Bootloader (e.g. GRUB) mounted at /boot
-## gdisk internal code 8300 is for any linux file system
-sgdisk $DEVICE_PATH -n=1:0:+512M -t=1:8300
+## /dev/sda1 = EFI System Partition (ESP)
+## sgdisk --list-types
+## gdisk's internal code ef00 is for EFI System - boot, esp
+sgdisk $DEVICE_PATH -n=1:0:+200M -t=1:ef00
 
-## /dev/sda2 = Encrypted Partition
-## gdisk's internal code 8309 is for Linux LUKS (encryption)
-sgdisk $DEVICE_PATH -N=2 -t2:8e00
+## /dev/sda2 = Bootloader (e.g. GRUB) mounted at /boot
+## gdisk internal code 8300 is for any linux file system
+sgdisk $DEVICE_PATH -n=2:201M:+312M -t=2:8300
+
+## /dev/sda3 = LVM partition
+## gdisk's internal code 8e00 is for Linux LVM
+sgdisk $DEVICE_PATH -N=3 -t3:8e00
 
 partprobe
 
-echo "Creating file system for Bootloader"
-mkfs.ext4 ${DEVICE_PARTITION_PREFIX_PATH}1 -L bootloader
+echo "Creating file systems for ESP and Bootloader"
+mkfs.vfat ${DEVICE_PARTITION_PREFIX_PATH}1 -n esp
+mkfs.ext4 ${DEVICE_PARTITION_PREFIX_PATH}2 -L bootloader
 
 # Using the LVM on LUKS approach.
 # https://wiki.archlinux.org/index.php/Dm-crypt/Swap_encryption#LVM_on_LUKS
 echo "Creating the LVM group and volumes within the encrypted container."
-vgcreate ArchVG ${DEVICE_PATH}2
+vgcreate ArchVG ${DEVICE_PATH}3
 
 # No swap for a worker
 
