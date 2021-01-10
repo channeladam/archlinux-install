@@ -15,8 +15,8 @@ sudo systemctl enable --now sshd.service
 # Disk tools
 #########################
 
-# Samba (disk mounting)
-sudo pacman -S --noconfirm samba
+# Disk mounting - mount.smb3
+sudo pacman -S --noconfirm gvfs gvfs-smb smbclient cifs-utils
 
 # SSDs & SMART
 sudo pacman -S --noconfirm smartmontools
