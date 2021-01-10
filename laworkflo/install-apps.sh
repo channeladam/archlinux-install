@@ -61,16 +61,17 @@ sudo flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme
 sudo pacman -S barrier
 
 # Partition Tools
-sudo pacman -S --noconfirm gparted dosfstools mtools partclone
+sudo pacman -S --noconfirm gparted dosfstools mtools
+
+# Backup tools
+sudo pacman -S --noconfirm partclone rsync rclone backintime 
+yay -S --noconfirm rclone-browser
 
 # Trash-cli
 sudo pacman -S --noconfirm trash-cli
 
 # Night Light
 sudo pacman -S --noconfirm redshift
-
-# Back-in-time
-sudo pacman -S --noconfirm backintime
 
 # Terminal
 sudo pacman -S --noconfirm tilix
