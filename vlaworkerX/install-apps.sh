@@ -63,16 +63,6 @@ yay -S --noconfirm dotnet-sdk-bin aspnet-runtime-bin
 # PowerShell
 yay -S --noconfirm powershell-bin
 
-# Azure Artifacts Credential Provider
-# https://github.com/microsoft/artifacts-credprovider#azure-artifacts-credential-provider
-# Used indirectly with "dotnet restore --interactive"
-wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
-
-# Azure Tools
-yay -S --noconfirm azure-cli
-yay -S --noconfirm azure-functions-core-tools-bin
-yay -S --noconfirm bicep-bin
-
 # Python
 sudo pacman -S --noconfirm python python-pip
 sudo pacman -S --noconfirm pyenv
@@ -110,3 +100,13 @@ EOF
 
 # nodejs
 sudo pacman -S --noconfirm nodejs
+
+# Azure Artifacts Credential Provider
+# https://github.com/microsoft/artifacts-credprovider#azure-artifacts-credential-provider
+# Used indirectly with "dotnet restore --interactive"
+wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+
+# Azure Tools (needs Python etc installed first)
+yay -S --noconfirm azure-cli
+yay -S --noconfirm azure-functions-core-tools-bin
+yay -S --noconfirm bicep-bin
