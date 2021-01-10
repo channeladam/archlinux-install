@@ -8,6 +8,7 @@ sudo pacman -Syu --noconfirm
 
 # SSH
 sudo pacman -S --noconfirm openssh
+sudo systemctl enable --now sshd.service
 
 
 #########################
