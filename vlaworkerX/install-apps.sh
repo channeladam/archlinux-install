@@ -52,6 +52,10 @@ sudo pacman -S --noconfirm trash-cli
 # System Monitoring
 sudo pacman -S --noconfirm bashtop htop
 
+# Nvidia related
+sudo mhwd -i pci video-nvidia
+sudo pacman -S --noconfirm nvtop
+
 
 #########################
 # Software Development
