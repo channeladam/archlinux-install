@@ -56,6 +56,16 @@ sudo pacman -S --noconfirm bashtop htop
 sudo mhwd -i pci video-nvidia
 sudo pacman -S --noconfirm nvtop
 
+# Virtual display
+# Usage:
+# (a)
+#     $ xvfb-run --auto-display <command>
+# or
+# (b)
+#     $ Xvfb :1 -screen 0 1920x1080x24+32 -fbdir /tmp &
+#     $ export DISPLAY=:1
+sudo pacman -S --noconfirm xorg-server-xvfb
+
 
 #########################
 # Software Development
