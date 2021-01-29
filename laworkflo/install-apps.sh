@@ -107,10 +107,12 @@ sudo pacman -S --noconfirm firefox chromium
 
 yay -S --noconfirm google-chrome
 
+flatpak install -y flathub org.signal.Signal
 flatpak install -y flathub flathub com.slack.Slack
 flatpak install -y flathub com.discordapp.Discord
 flatpak install -y flathub com.microsoft.Teams
 flatpak install -y flathub us.zoom.Zoom
+
 
 # Thunderbird and calendar integration
 sudo pacman -S --noconfirm thunderbird 
