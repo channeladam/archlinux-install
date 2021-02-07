@@ -79,6 +79,9 @@ sudo pacman -S --noconfirm tilix
 # System Monitoring
 sudo pacman -S --noconfirm xfce4-systemload-plugin bashtop stacer htop gnome-system-monitor
 
+# Diagnostics
+sudo pacman -S strace
+
 # Calculator
 flatpak install -y flathub org.gnome.Calculator
 
