@@ -66,6 +66,10 @@ sudo pacman -S --noconfirm nvtop
 #     $ export DISPLAY=:1
 sudo pacman -S --noconfirm xorg-server-xvfb
 
+# QEMU Guest Agent
+pacman -S qemu-guest-agent
+systemctl enable qemu-guest-agent.service --now
+
 
 #########################
 # Software Development
