@@ -2,7 +2,10 @@
 
 ## Panel
 
-latte-dock - widget added into Panel
+latte-dock
+- Run latte
+- Right click -> Dock Settings
+- Configure as a Panel, not as a Dock
 
 
 ## Turn off screen after lock
@@ -11,10 +14,11 @@ latte-dock - widget added into Panel
 - Screen Saver -> Configure Events button
 - Screen locked -> Run command: /bin/sleep 5; /usr/bin/xset dpms force off
 
+
 ## Activate and raise window on mouse scroll
 
 - System Settings -> Workspace -> Window Management -> Window Behaviour -> Window Actions
-- Mouse wheel:  Activeate, raise and scroll
+- Mouse wheel:  Activate, raise and scroll
 
 
 ---
@@ -22,7 +26,8 @@ latte-dock - widget added into Panel
 
 ### Settings
 
-- System settings -> Startup & Shutdown -> Login Screen (SDDM) -> Breath2
+- System settings -> Workspace -> Startup & Shutdown -> Login Screen (SDDM) -> Breath2
+- System Settings -> Workspace -> Window Management -> Task Switcher -> Grid
 
 - System Settings -> Appearance -> Global Theme -> Breeze Dark
 - System Settings -> Appearance -> Application Style -> Fusion
@@ -35,7 +40,7 @@ latte-dock - widget added into Panel
     - Button size: Medium
     - Draw titlebar background gradient
     - Shadows: Small, 25%, light blue #0bcaff
-    - Window border size: No Borders
+  - Window border size: No Borders
   - Titlebar Buttons: (Pin on all desktops, Keep above) on left, remove Help
 
 - System Settings -> Appearance -> Icons -> Papirus-Dark
@@ -44,7 +49,6 @@ latte-dock - widget added into Panel
 
 - System Settings -> Appearance -> Splash Screen -> Breath2
 
-- System Settings -> Workspace -> Window Management -> Task Switcher -> Grid
 
 
 ---
