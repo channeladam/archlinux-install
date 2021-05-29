@@ -141,6 +141,7 @@ yay -S --noconfirm powershell-bin
 
 # VSCode - the official MS version is required (as opposed to OSS ‘code’) in order to be able to debug
 yay -S --noconfirm visual-studio-code-bin
+yay -S --noconfirm typescript
 
 # Postman
 flatpak install -y flathub com.getpostman.Postman
