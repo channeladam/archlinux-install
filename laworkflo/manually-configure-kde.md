@@ -59,6 +59,9 @@ latte-dock
 
 Meta + arrows to Tile window
 
+### Configure Flameshot
+https://github.com/flameshot-org/flameshot#on-kde-plasma-desktop
+
 
 ### Toggle Compositor
 Shift-Alt-F12
