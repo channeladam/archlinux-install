@@ -17,7 +17,7 @@ sudo systemctl enable --now fstrim.timer
 #########################
 # Application Managers
 #########################
-sudo pacman -S --noconfirm flatpak pamac-flatpak-plugin
+sudo pacman -S --noconfirm flatpak pamac-gtk pamac-flatpak-plugin
 flatpak install -y flathub flatseal
 
 # App-Outlet AppImage https://app-outlet.github.io/
