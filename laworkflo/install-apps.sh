@@ -122,6 +122,9 @@ sudo pacman -S --noconfirm thunderbird
 # O365 / Exchange functionality
 flatpak install -y flathub org.davmail.DavMail
 
+# Notes
+flatpak install -y net.cozic.joplin_desktop
+
 
 #########################
 # Software Development
