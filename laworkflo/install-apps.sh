@@ -194,10 +194,14 @@ wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
 # Azure Tools (needs Python etc installed first)
 yay -S --noconfirm azure-cli
-yay -S --noconfirm azuredatastudio
+
 yay -S --noconfirm azure-functions-core-tools-bin
 yay -S --noconfirm storageexplorer
 yay -S --noconfirm bicep-bin
+
+# Database
+yay -S --noconfirm azuredatastudio
+flatpak install -y flathub io.dbeaver.DBeaverCommunity   
 
 
 #########################
@@ -213,6 +217,12 @@ yay -S --noconfirm deezer
 # VLC
 flatpak install -y flathub org.videolan.VLC
 
+# Video Recording
+yay -S --noconfirm com.obsproject.Studio 
+
+# Use your android device as a wireless/usb webcam
+yay -S --noconfirm droidcam droidcam-obs-plugin
+
 
 #########################
 # Graphics
@@ -226,3 +236,4 @@ flatpak install -y flathub org.inkscape.Inkscape
 #########################
 
 flatpak install -y flathub org.libreoffice.LibreOffice
+flatpak install -y flathub com.github.alainm23.planner
