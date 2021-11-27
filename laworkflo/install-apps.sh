@@ -137,7 +137,9 @@ git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 yay -S --noconfirm github-desktop-bin
 
 # .NET
-yay -S --noconfirm dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+yay -S --noconfirm dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+yay -S --noconfirm dotnet-runtime-2.2 dotnet-runtime-3.1
+# yay -S --noconfirm dotnet-runtime-5.0-bin
 
 # PowerShell
 yay -S --noconfirm powershell-bin
