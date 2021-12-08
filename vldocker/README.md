@@ -12,7 +12,7 @@ Download ISO from https://www.archlinux.org/download/ and boot into the VM.
 ## Step 3 - Download these scripts into the VM
 At the Arch Linux install console:
 ``` bash
-# wget https://github.com/channeladam/archlinux-install/archive/master.zip
+# curl -L https://github.com/channeladam/archlinux-install/archive/master.zip --output master.zip
 # pacman -Sy unzip
 # unzip master
 # cd archlinux-install-master/vldocker
@@ -29,11 +29,11 @@ At the Arch Linux install console:
 # ./configure.sh
 ```
 
-## Step 6 - Run install-pamac.sh
+## Step 6 - Run install-yay.sh
 ``` bash
 # arch-chroot /mnt
 # sudo -u adam bash
-$ ./install-pamac.sh
+$ ./install-yay.sh
 $ exit
 ```
 
@@ -47,3 +47,22 @@ $ exit
 ## Step 8 - Reboot
 Dismount the ISO and reboot.
 Login as a non-root user
+
+
+## Step 9 - Install Portainer
+
+https://docs.portainer.io/v/ce-2.9/start/install/server/docker/linux
+
+```
+docker volume create portainer_data
+
+docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
+    --restart=always \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v portainer_data:/data \
+    cr.portainer.io/portainer/portainer-ce:latest
+
+docker ps
+```
+
+Login to Portainer at https://<ip address>:9443 to set the admin password
