@@ -9,8 +9,7 @@ pacman -S --noconfirm docker
 groupadd docker
 usermod -aG docker adam
 echo "You will need to sign-out and sign-in for the group membership to take effect and run docker without sudo"
-systemctl enable docker
-systemctl start docker
+systemctl enable docker --now
 
 echo "openssh"
 # https://wiki.archlinux.org/index.php/OpenSSH
