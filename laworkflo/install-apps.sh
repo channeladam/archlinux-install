@@ -203,7 +203,8 @@ yay -S --noconfirm bicep-bin
 
 # Database
 yay -S --noconfirm azuredatastudio
-flatpak install -y flathub io.dbeaver.DBeaverCommunity   
+sudo pacman -S --noconfirm dbeaver 
+# NOTE: flatpak dbeaver cannot open system browser to connect to Azure SqlDb...
 
 
 #########################
