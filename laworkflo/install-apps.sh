@@ -63,6 +63,9 @@ sudo pacman -S barrier
 # Partition Tools
 sudo pacman -S --noconfirm gparted dosfstools mtools
 
+# Disk Space
+sudo pacman -S --noconfirm filelight
+
 # Backup tools
 sudo pacman -S --noconfirm partclone rsync rclone backintime 
 yay -S --noconfirm rclone-browser
@@ -238,5 +241,6 @@ flatpak install -y flathub org.inkscape.Inkscape
 # Office
 #########################
 
+flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub com.github.alainm23.planner
