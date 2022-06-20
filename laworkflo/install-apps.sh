@@ -88,6 +88,11 @@ sudo pacman -S strace
 # Calculator
 flatpak install -y flathub org.gnome.Calculator
 
+# Webcam
+sudo pacman -S --noconfirm guvcview-qt
+yay -S --noconfirm linux-fake-background-webcam-git  
+flatpak install -y flathub io.github.webcamoid.Webcamoid
+
 
 #########################
 # Virtual Machines
