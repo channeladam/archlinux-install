@@ -89,9 +89,11 @@ sudo pacman -S strace
 flatpak install -y flathub org.gnome.Calculator
 
 # Webcam
+# NOTE: also need the linux headers installed to run fake-background
 sudo pacman -S --noconfirm guvcview-qt
-yay -S --noconfirm linux-fake-background-webcam-git  
+yay -S --noconfirm fake-background-webcam-git python-pyinotify inotify-tools
 flatpak install -y flathub io.github.webcamoid.Webcamoid
+# pip install inotify_simple configargparse cv2
 
 
 #########################
@@ -144,8 +146,13 @@ git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 
 yay -S --noconfirm github-desktop-bin
 
-# .NET
-yay -S --noconfirm dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+# .NET Latest
+#yay -S --noconfirm dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+
+# .NET 6 LTS
+yay -S --noconfirm dotnet-runtime-6.0-bin dotnet-targeting-pack-6.0-bin dotnet-sdk-6.0-bin aspnet-runtime-6.0-bin aspnet-targeting-pack-6.0-bin
+
+# .NET Older
 yay -S --noconfirm dotnet-runtime-2.2 dotnet-runtime-3.1
 # yay -S --noconfirm dotnet-runtime-5.0-bin
 
