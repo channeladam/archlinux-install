@@ -57,8 +57,8 @@ sudo pacman -S --noconfirm materia-gtk-theme
 # sudo is needed for flatpak themes apparently.
 sudo flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme.Materia-dark-compact
 
-# KVM - Barrier - need via pacman to have config file loaded correctly on a client
-sudo pacman -S barrier
+# KVM - Input Leap - need via yay to have config file loaded correctly on a client - https://github.com/input-leap/input-leap
+yay -S --noconfirm input-leap-git
 
 # Partition Tools
 sudo pacman -S --noconfirm gparted dosfstools mtools
