@@ -227,10 +227,13 @@ sudo pacman -S --noconfirm dbeaver
 #########################
 
 # Spotify
-flatpak install -y flathub com.spotify.Client
+# flatpak install -y flathub com.spotify.Client
 
 # Deezer
-yay -S --noconfirm deezer
+# yay -S --noconfirm deezer
+
+# Jellyfin
+flatpak install -y com.github.iwalton3.jellyfin-media-player
 
 # VLC
 flatpak install -y flathub org.videolan.VLC
