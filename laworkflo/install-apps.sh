@@ -41,6 +41,9 @@ yay -S --noconfirm webapp-manager
 # Bluetooth tools
 sudo pacman -S --noconfirm manjaro-bluetooth
 
+# Logitech Unifying Receiver tools
+sudo pacman -S --noconfirm solaar
+
 # Antivirus
 sudo pacman -S --noconfirm clamav clamtk
 yay -S --noconfirm thunar-sendto-clamtk
