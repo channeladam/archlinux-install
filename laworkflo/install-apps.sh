@@ -159,6 +159,18 @@ yay -S --noconfirm dotnet-runtime-6.0-bin dotnet-targeting-pack-6.0-bin dotnet-s
 yay -S --noconfirm dotnet-runtime-2.2 dotnet-runtime-3.1
 # yay -S --noconfirm dotnet-runtime-5.0-bin
 
+# International Components for Unicode (ICU) 
+sudo pacman -S --noconfirm icu
+
+# Ensure latest International Components for Unicode (ICU) library is used by .NET
+echo '' >> ~/.zshrc
+echo '# Ensure .NET uses the latest ICU version' >> ~/.zshrc
+echo 'export CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.zshrc
+
+echo '' >> ~/.bashrc
+echo '# Ensure .NET uses the latest ICU version' >> ~/.bashrc
+echo 'export CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.bashrc
+
 # PowerShell
 yay -S --noconfirm powershell-bin
 
