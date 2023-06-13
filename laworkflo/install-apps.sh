@@ -174,6 +174,9 @@ echo 'export CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.bashrc
 # PowerShell
 yay -S --noconfirm powershell-bin
 
+# Intel One Mono Font for developers - https://github.com/intel/intel-one-mono
+yay -S --noconfirm woff-intel-one-mono otf-intel-one-mono ttf-intel-one-mono woff2-intel-one-mono
+
 # VSCode - the official MS version is required (as opposed to OSS ‘code’) in order to be able to debug
 yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
