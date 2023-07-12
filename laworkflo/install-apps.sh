@@ -177,6 +177,10 @@ echo '' >> ~/.bashrc
 echo '# Ensure .NET uses the latest ICU version' >> ~/.bashrc
 echo 'export CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.bashrc
 
+echo "######################################################################################################################"
+echo "NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications with CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)"
+echo "######################################################################################################################"
+
 # PowerShell
 yay -S --noconfirm powershell-bin
 
