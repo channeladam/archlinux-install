@@ -72,6 +72,7 @@ sudo pacman -S --noconfirm filelight
 # Backup tools
 sudo pacman -S --noconfirm partclone rsync rclone backintime 
 yay -S --noconfirm rclone-browser
+flatpak install -y flathub org.freefilesync.FreeFileSync
 
 # Trash-cli
 sudo pacman -S --noconfirm trash-cli
@@ -90,6 +91,10 @@ sudo pacman -S strace
 
 # Calculator
 flatpak install -y flathub org.gnome.Calculator
+
+# Downloading
+flatpak install -y flathub org.qbittorrent.qBittorrent
+flatpak install -y flathub org.nickvision.tubeconverter
 
 # Webcam
 # NOTE: also need the linux headers installed to run fake-background
@@ -141,10 +146,6 @@ sudo pacman -S --noconfirm thunderbird
 # O365 / Exchange functionality
 flatpak install -y flathub org.davmail.DavMail
 
-# Notes
-flatpak install -y net.cozic.joplin_desktop
-
-
 #########################
 # Software Development
 #########################
@@ -154,6 +155,7 @@ sudo pacman -S --noconfirm git seahorse libsecret
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 
 yay -S --noconfirm github-desktop-bin
+flatpak install -y flathub com.github.git_cola.git-cola 
 
 # .NET Latest
 yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
@@ -260,30 +262,48 @@ sudo pacman -S --noconfirm dbeaver
 # Deezer
 # yay -S --noconfirm deezer
 
+# Radio
+flatpak install -y flathub com.github.louis77.tuner
+
 # Jellyfin
-flatpak install -y com.github.iwalton3.jellyfin-media-player
+flatpak install -y flathub com.github.iwalton3.jellyfin-media-player
 
-# VLC
+# Video Players
 flatpak install -y flathub org.videolan.VLC
+flatpak install -y flathub org.bino3d.bino
+flatpak install -y flathub io.mpv.Mpv
 
-# Video Recording
+# Media Recording / Editing / Converting
+flatpak install -y flathub net.mediaarea.MediaInfo
+flatpak install -y flathub org.bunkus.mkvtoolnix-gui
+flatpak install -y flathub org.ardour.Ardour
+flatpak install -y flathub org.kde.kdenlive
+flatpak install -y flathub com.ozmartians.VidCutter
 yay -S --noconfirm com.obsproject.Studio 
+
+# Camera / Photos
+flatpak install -y flathub com.rawtherapee.RawTherapee
+flatpak install -y flathub org.darktable.Darktable
+flatpak install -y flathub org.entangle_photo.Manager 
+flatpak install -y flathub org.kde.digikam
 
 # Use your android device as a wireless/usb webcam
 yay -S --noconfirm droidcam droidcam-obs-plugin
 
-
 #########################
 # Graphics
 #########################
+flatpak install -y flathub nl.hjdskes.gcolor3
 flatpak install -y flathub org.kde.krita
 flatpak install -y flathub org.inkscape.Inkscape
-
+flatpak install -y flathub com.jgraph.drawio.desktop
+flatpak install -y flathub page.codeberg.Imaginer.Imaginer
 
 #########################
 # Office
 #########################
-
+flatpak install -y flathub net.cozic.joplin_desktop
+flatpak install -y flathub io.github.wereturtle.ghostwriter
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub com.github.alainm23.planner
