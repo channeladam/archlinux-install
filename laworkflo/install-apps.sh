@@ -54,6 +54,10 @@ flatpak install -y flathub org.keepassxc.KeePassXC
 # Remmina - use either flatpak or yay for the local microphone to work - not sudo pacman.
 flatpak install -y flathub org.remmina.Remmina
 
+# Virt-viewer for Proxmox Spice connections
+flatpak install -y flathub org.virt_manager.virt-viewer
+echo 'NOTE: You will need to create a .desktop file containing "exec=flatpak run org.virt_manager.virt-viewer"'
+
 # Materia Dark Theme
 sudo pacman -S --noconfirm materia-gtk-theme
 # Flatpak themes must be exactly the same as currently configured on the host...
