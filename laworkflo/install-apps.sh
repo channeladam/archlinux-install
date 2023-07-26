@@ -156,7 +156,9 @@ flatpak install -y flathub org.davmail.DavMail
 
 # git
 sudo pacman -S --noconfirm git seahorse libsecret
-git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
+# git config --global --replace-all credential.helper /usr/lib/git-core/git-credential-libsecret
+yay -S --noconfirm git-credential-manager-core-bin
+git config --global --replace-all credential.helper /usr/bin/git-credential-manager
 
 yay -S --noconfirm github-desktop-bin
 flatpak install -y flathub com.github.git_cola.git-cola 
@@ -239,9 +241,10 @@ EOF
 sudo pacman -S --noconfirm nodejs
 
 # Azure Artifacts Credential Provider
+# NOTE: This SHOULD now be replaced by git-credential-manager...
 # https://github.com/microsoft/artifacts-credprovider#azure-artifacts-credential-provider
 # Used indirectly with "dotnet restore --interactive"
-wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+# wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
 # Azure Tools (needs Python etc installed first)
 yay -S --noconfirm azure-cli
