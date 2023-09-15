@@ -283,10 +283,11 @@ flatpak install -y flathub io.mpv.Mpv
 # Media Recording / Editing / Converting
 flatpak install -y flathub net.mediaarea.MediaInfo
 flatpak install -y flathub org.bunkus.mkvtoolnix-gui
+flatpak install -y flathub org.nickvision.tagger
 flatpak install -y flathub org.ardour.Ardour
 flatpak install -y flathub org.kde.kdenlive
 flatpak install -y flathub com.ozmartians.VidCutter
-yay -S --noconfirm com.obsproject.Studio 
+yay -S --noconfirm com.obsproject.Studio
 
 # Camera / Photos
 flatpak install -y flathub com.rawtherapee.RawTherapee
