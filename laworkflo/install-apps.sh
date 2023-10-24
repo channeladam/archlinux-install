@@ -96,6 +96,9 @@ sudo pacman -S strace
 # Calculator
 flatpak install -y flathub org.gnome.Calculator
 
+# Time tracking
+flatpak install -y flathub org.kde.ktimetracker
+
 # Downloading
 flatpak install -y flathub org.qbittorrent.qBittorrent
 flatpak install -y flathub org.nickvision.tubeconverter
