@@ -38,6 +38,14 @@ yay -S --noconfirm webapp-manager
 # Utilities
 #########################
 
+# General Fonts
+# Standard/Base 14 are:
+#   Courier, Courier-Bold, Courier-BoldOblique, Courier-Oblique,
+#   Helvetica, Helvetica-Bold, Helvetica-BoldOblique, Helvetica-Oblique,
+#   Symbol, Times-Bold, Times-BoldItalic, Times-Italic, Times-Roman, ZapfDingbats
+sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+yay -S --noconfirm adobe-base-14-fonts
+
 # Bluetooth tools
 sudo pacman -S --noconfirm manjaro-bluetooth
 
