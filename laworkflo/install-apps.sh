@@ -49,6 +49,9 @@ yay -S --noconfirm webapp-manager
 #      - https://github.com/ArtifexSoftware/urw-base35-fonts/tree/master
 sudo pacman -S --noconfirm gsfonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
+# Font editing
+sudo pacman -S --noconfirm fontforge
+
 # Bluetooth tools
 sudo pacman -S --noconfirm manjaro-bluetooth
 
