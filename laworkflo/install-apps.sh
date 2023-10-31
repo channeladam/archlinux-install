@@ -39,12 +39,15 @@ yay -S --noconfirm webapp-manager
 #########################
 
 # General Fonts
-# Standard/Base 14 are:
-#   Courier, Courier-Bold, Courier-BoldOblique, Courier-Oblique,
-#   Helvetica, Helvetica-Bold, Helvetica-BoldOblique, Helvetica-Oblique,
-#   Symbol, Times-Bold, Times-BoldItalic, Times-Italic, Times-Roman, ZapfDingbats
-sudo pacman -S --noconfirm noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
-yay -S --noconfirm adobe-base-14-fonts
+#  - gsfonts includes the 35 PostScript Level 2 Base Fonts, which provides alternatives for the Adobe standard/Base 14 fonts:
+#     Courier, Courier-Bold, Courier-BoldOblique, Courier-Oblique,
+#     Helvetica, Helvetica-Bold, Helvetica-BoldOblique, Helvetica-Oblique,
+#     Symbol, Times-Bold, Times-BoldItalic, Times-Italic, Times-Roman, ZapfDingbats
+#     See:
+#      - https://en.wikipedia.org/wiki/PostScript_fonts#Core_Font_Set
+#      - https://packages.debian.org/sid/fonts/fonts-urw-base35
+#      - https://github.com/ArtifexSoftware/urw-base35-fonts/tree/master
+sudo pacman -S --noconfirm gsfonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 # Bluetooth tools
 sudo pacman -S --noconfirm manjaro-bluetooth
