@@ -38,6 +38,10 @@ yay -S --noconfirm webapp-manager
 # Utilities
 #########################
 
+# Pipewire and easyeffects + Linux Studio Plugins
+sudo pacman -S --noconfirm manjaro-pipewire pipewire-jack pipewire-v4l2
+flatpak install -y flathub com.github.wwmm.easyeffects org.freedesktop.LinuxAudio.Plugins.LSP
+
 # General Fonts
 #  - gsfonts includes the 35 PostScript Level 2 Base Fonts, which provides alternatives for the Adobe standard/Base 14 fonts:
 #     Courier, Courier-Bold, Courier-BoldOblique, Courier-Oblique,
@@ -182,6 +186,9 @@ flatpak install -y flathub com.github.git_cola.git-cola
 
 # .NET Latest
 yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+
+# .NET 7 - Expires May 2024
+# yay -S --noconfirm dotnet-runtime-7.0-bin dotnet-targeting-pack-7.0-bin dotnet-sdk-7.0-bin aspnet-runtime-7.0-bin aspnet-targeting-pack-7.0-bin
 
 # .NET 6 LTS
 yay -S --noconfirm dotnet-runtime-6.0-bin dotnet-targeting-pack-6.0-bin dotnet-sdk-6.0-bin aspnet-runtime-6.0-bin aspnet-targeting-pack-6.0-bin
