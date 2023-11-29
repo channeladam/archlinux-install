@@ -171,6 +171,7 @@ sudo pacman -S --noconfirm thunderbird
 # O365 / Exchange functionality
 flatpak install -y flathub org.davmail.DavMail
 
+
 #########################
 # Software Development
 #########################
@@ -330,6 +331,7 @@ flatpak install -y flathub org.kde.krita
 flatpak install -y flathub org.inkscape.Inkscape
 flatpak install -y flathub com.jgraph.drawio.desktop
 flatpak install -y flathub page.codeberg.Imaginer.Imaginer
+flatpak install -y flathub org.flozz.yoga-image-optimizer
 
 #########################
 # Office
