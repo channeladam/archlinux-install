@@ -311,6 +311,7 @@ flatpak install -y flathub org.bunkus.mkvtoolnix-gui
 flatpak install -y flathub org.nickvision.tagger
 flatpak install -y flathub org.ardour.Ardour
 flatpak install -y flathub org.kde.kdenlive
+flatpak install -y flathub io.github.jliljebl.Flowblade
 flatpak install -y flathub com.ozmartians.VidCutter
 yay -S --noconfirm com.obsproject.Studio
 
