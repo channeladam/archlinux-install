@@ -38,9 +38,11 @@ yay -S --noconfirm webapp-manager
 # Utilities
 #########################
 
-# Pipewire and easyeffects + Linux Studio Plugins
-sudo pacman -S --noconfirm manjaro-pipewire pipewire-jack pipewire-v4l2
-flatpak install -y flathub com.github.wwmm.easyeffects org.freedesktop.LinuxAudio.Plugins.LSP
+# Pipewire, WirePlumber
+sudo pacman -S --noconfirm pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-v4l2 gst-plugin-pipewire wireplumber
+
+# JamesDSP and easyeffects + Linux Studio Plugins (for Pipewire)
+flatpak install -y flathub me.timschneeberger.jdsp4linux com.github.wwmm.easyeffects org.freedesktop.LinuxAudio.Plugins.LSP
 
 # General Fonts
 #  - gsfonts includes the 35 PostScript Level 2 Base Fonts, which provides alternatives for the Adobe standard/Base 14 fonts:
