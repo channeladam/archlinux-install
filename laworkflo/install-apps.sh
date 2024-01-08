@@ -149,11 +149,12 @@ virsh net-autostart default
 # Internet & Communications
 #########################
 
-# Use pacman for vivaldi instead of flatpak due to keepass plugin
+# Use pacman for brave and vivaldi instead of flatpak due to keepass plugin
 sudo pacman -S --noconfirm vivaldi-bin vivaldi-ffmpeg-codecs
 
-# Install Brave to use as a privacy browser
-flatpak install -y flathub com.brave.Browser
+# Use pacman for Brave instead of flatpak due to keepass plugin
+sudo pacman -S --noconfirm brave-browser
+#flatpak install -y flathub com.brave.Browser
 
 # Use pacman for firefox instead of flatpak due to keepass plugin
 # Use pacman for chromium instead of flatpak due to webapp manager
