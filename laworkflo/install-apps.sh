@@ -2,6 +2,11 @@
 
 sudo pacman -Syu --noconfirm
 
+########################
+# Compilation tools
+########################
+sudo pacman -S --noconfirm ccache
+
 #########################
 # Disk tools
 #########################
@@ -109,6 +114,8 @@ sudo pacman -S --noconfirm tilix
 
 # System Monitoring
 sudo pacman -S --noconfirm xfce4-systemload-plugin bashtop stacer htop gnome-system-monitor
+# https://missioncenter.io/
+flatpak install -y flathub io.missioncenter.MissionCenter
 
 # Diagnostics
 sudo pacman -S strace
@@ -213,8 +220,13 @@ echo '' >> ~/.bashrc
 echo '# Ensure .NET uses the latest ICU version' >> ~/.bashrc
 echo 'export CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.bashrc
 
+# NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications.
+# This is because when VSCode is launched via a launcher (the .desktop file),
+# it is not running from within a bash or zsh environment, and doesn't have that environment.
+# Change Program to: /usr/bin/bash
+# and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'
 echo "######################################################################################################################"
-echo "NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications with CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)"
+echo "NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications. Change Program to: /usr/bin/bash and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'"
 echo "######################################################################################################################"
 
 # PowerShell
@@ -226,6 +238,18 @@ yay -S --noconfirm woff-intel-one-mono otf-intel-one-mono ttf-intel-one-mono wof
 # VSCode - the official MS version is required (as opposed to OSS ‘code’) in order to be able to debug
 yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
+
+# Coding Assistants - llama.cpp (use with twinny extension in VSCode)
+yay -S --noconfirm llama.cpp-git
+# 16GB for basekit!
+sudo pacman -S --noconfirm intel-oneapi-basekit
+# NOTE: see https://github.com/ggerganov/llama.cpp/blob/master/README-sycl.md :
+echo '' >> ~/.zshrc
+echo '# Initialise variables for Intel oneapi / SYCL' >> ~/.zshrc
+echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.zshrc
+echo '' >> ~/.bashrc
+echo '# Initialise variables for Intel oneapi / SYCL' >> ~/.bashrc
+echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 
 # Postman
 flatpak install -y flathub com.getpostman.Postman
