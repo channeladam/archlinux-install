@@ -40,6 +40,46 @@ yay -S --noconfirm webapp-manager
 
 
 #########################
+# Networking / Firewall
+#########################
+
+# Network tools
+pacman -S --noconfirm bind ldns iproute2 iputils iptables-nft
+
+# Setup ufw / gufw as the local firewall
+
+pacman -S --noconfirm ufw gufw
+
+systemctl disable iptables
+systemctl enable --now ufw
+
+ufw default deny
+ufw default allow outgoing
+
+# Allow access from our local subnet
+ufw allow from 192.168.0.0/24
+
+ufw reload
+
+
+# DNS Cache - systemd-resolved
+systemctl enable --now systemd-resolved.service
+
+# OpenResolve (which is compatible with NetworkManager - whereas systemd-resolvconf is not!)
+# https://wiki.archlinux.org/title/NetworkManager#Use_openresolv
+sudo pacman -S --noconfirm openresolv
+sudo echo '[main]' >> /etc/NetworkManager/conf.d/rc-manager.conf
+sudo echo 'rc-manager=resolvconf' >> /etc/NetworkManager/conf.d/rc-manager.conf
+
+# Tell NetworkManager to ignore all wireguard devices
+sudo echo '[keyfile]' >> /etc/NetworkManager/conf.d/unmanaged.conf
+sudo echo 'unmanaged-devices=type:wireguard' >> /etc/NetworkManager/conf.d/unmanaged.conf
+
+# Wireguard VPN
+sudo pacman -S --noconfirm wireguard-tools
+
+
+#########################
 # Utilities
 #########################
 
