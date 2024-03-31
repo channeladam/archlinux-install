@@ -57,7 +57,11 @@ ufw default deny
 ufw default allow outgoing
 
 # Allow access from our local subnet
-ufw allow from 192.168.0.0/24
+ufw allow from 192.168.0.0/24 comment 'Local network'
+
+# Allow access for All Hosts Multicast Group on local network
+# (e.g. used by Scream to receive)
+ufw allow to 224.0.0.0/24 comment 'All Hosts Multicast Group'
 
 ufw reload
 
