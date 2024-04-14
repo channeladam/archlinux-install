@@ -403,11 +403,13 @@ flatpak install -y flathub org.kde.krita
 flatpak install -y flathub org.inkscape.Inkscape
 flatpak install -y flathub com.jgraph.drawio.desktop
 flatpak install -y flathub page.codeberg.Imaginer.Imaginer
+flatpak install -y flathub org.upscayl.Upscayl
 
 # Image optimiser GUI
 flatpak install -y flathub org.flozz.yoga-image-optimizer
 # Image optimiser CLI
 pip install yoga
+
 
 
 #########################
