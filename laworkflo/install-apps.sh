@@ -404,6 +404,7 @@ flatpak install -y flathub org.inkscape.Inkscape
 flatpak install -y flathub com.jgraph.drawio.desktop
 flatpak install -y flathub page.codeberg.Imaginer.Imaginer
 flatpak install -y flathub org.upscayl.Upscayl
+flatpak install -y flathub com.github.PintaProject.Pinta
 
 # Image optimiser GUI
 flatpak install -y flathub org.flozz.yoga-image-optimizer
