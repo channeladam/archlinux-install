@@ -412,7 +412,6 @@ flatpak install -y flathub org.flozz.yoga-image-optimizer
 pip install yoga
 
 
-
 #########################
 # Office
 #########################
@@ -421,3 +420,24 @@ flatpak install -y flathub io.github.wereturtle.ghostwriter
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub com.github.alainm23.planner
+
+
+#########################
+# Other Utilities (that should be done at the end)
+#########################
+
+# Zoxide - https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation
+sudo pacman -S --noconfirm zoxide
+# Zoxide config - Zsh
+echo '' >> ~/.zshrc
+echo '# NOTE: Ensure zoxide is the LAST line executed' >> ~/.zshrc
+echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc
+# Zoxide config - Bash
+echo '' >> ~/.bashrc
+echo '# NOTE: Ensure zoxide is the LAST line executed' >> ~/.bashrc
+echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
+# Zoxide config - Powershell
+mkdir -p ~/.config/powershell
+echo '' >> ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+echo '# NOTE: Ensure zoxide is the LAST line executed' >> ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+echo 'Invoke-Expression (& { (zoxide init powershell | Out-String) })' >> ~/.config/powershell/Microsoft.PowerShell_profile.ps1
