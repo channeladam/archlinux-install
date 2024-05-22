@@ -155,6 +155,7 @@ sudo pacman -S --noconfirm redshift
 
 # Terminal
 sudo pacman -S --noconfirm tilix
+yay -S --noconfirm hstr
 
 # System Monitoring
 sudo pacman -S --noconfirm xfce4-systemload-plugin bashtop stacer htop gnome-system-monitor
