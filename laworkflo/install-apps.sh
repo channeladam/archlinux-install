@@ -153,9 +153,26 @@ sudo pacman -S --noconfirm trash-cli
 # Night Light
 sudo pacman -S --noconfirm redshift
 
-# Terminal
+# Terminal - Tilix
 sudo pacman -S --noconfirm tilix
+echo '' >> ~/.bashrc
+echo '# Tilix' >> ~/.bashrc
+echo 'if [ $TILIX_ID ] || [ $VTE_VERSION ]; then' >> ~/.bashrc
+echo '  source /etc/profile.d/vte.sh' >> ~/.bashrc
+echo 'fi' >> ~/.bashrc
+
+echo '' >> ~/.zshrc
+echo '# Tilix' >> ~/.zshrc
+echo 'if [ $TILIX_ID ] || [ $VTE_VERSION ]; then' >> ~/.zshrc
+echo '  source /etc/profile.d/vte.sh' >> ~/.zshrc
+echo 'fi' >> ~/.zshrc
+
+# Hstr - History Search (activate with Ctrl-R) - https://github.com/dvorka/hstr
 yay -S --noconfirm hstr
+echo '' >> ~/.bashrc
+hstr --show-bash-configuration >> ~/.bashrc
+echo '' >> ~/.zshrc
+hstr --show-zsh-configuration >> ~/.zshrc
 
 # System Monitoring
 sudo pacman -S --noconfirm xfce4-systemload-plugin bashtop stacer htop gnome-system-monitor
