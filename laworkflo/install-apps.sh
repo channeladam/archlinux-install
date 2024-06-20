@@ -133,6 +133,9 @@ sudo pacman -S --noconfirm materia-gtk-theme
 # sudo is needed for flatpak themes apparently.
 sudo flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme.Materia-dark-compact
 
+# Desktop Widgets (e.g. Color Picker)
+sudo pacman -S --noconfirm kdeplasma-addons
+
 # KVM - Input Leap - need via yay to have config file loaded correctly on a client - https://github.com/input-leap/input-leap
 yay -S --noconfirm input-leap-git
 
