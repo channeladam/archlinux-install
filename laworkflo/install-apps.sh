@@ -259,7 +259,7 @@ flatpak install -y flathub org.davmail.DavMail
 # git
 sudo pacman -S --noconfirm git seahorse libsecret
 # git config --global --replace-all credential.helper /usr/lib/git-core/git-credential-libsecret
-yay -S --noconfirm git-credential-manager-core-bin
+yay -S --noconfirm git-credential-manager-bin
 git config --global --replace-all credential.helper /usr/bin/git-credential-manager
 
 yay -S --noconfirm github-desktop-bin
@@ -377,7 +377,7 @@ yay -S --noconfirm bicep-bin
 
 # Database
 yay -S --noconfirm azuredatastudio
-sudo pacman -S --noconfirm dbeaver 
+sudo pacman -S --noconfirm dbeaver
 # NOTE: flatpak dbeaver cannot open system browser to connect to Azure SqlDb...
 
 
