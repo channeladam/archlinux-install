@@ -195,6 +195,8 @@ flatpak install -y flathub org.kde.ktimetracker
 # Downloading
 flatpak install -y flathub org.qbittorrent.qBittorrent
 flatpak install -y flathub org.nickvision.tubeconverter
+flatpak install -y flathub io.freetubeapp.FreeTube
+yay -S --noconfirm tartube
 
 # Webcam
 # NOTE: also need the linux headers installed to run fake-background
