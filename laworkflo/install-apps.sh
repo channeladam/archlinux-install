@@ -178,13 +178,19 @@ hstr --show-bash-configuration >> ~/.bashrc
 echo '' >> ~/.zshrc
 hstr --show-zsh-configuration >> ~/.zshrc
 
+# JSON
+sudo pacman -S --noconfirm jq
+
 # System Monitoring
 sudo pacman -S --noconfirm xfce4-systemload-plugin bashtop stacer htop gnome-system-monitor
 # https://missioncenter.io/
 flatpak install -y flathub io.missioncenter.MissionCenter
 
 # Diagnostics
-sudo pacman -S strace
+sudo pacman -S --noconfirm strace
+
+# Benchmarks
+sudo pacman -S --noconfirm y-cruncher
 
 # Calculator
 flatpak install -y flathub org.gnome.Calculator
@@ -269,6 +275,9 @@ flatpak install -y flathub com.github.git_cola.git-cola
 
 # .NET Latest
 yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+
+# .NET 8 LTS
+yay -S --noconfirm dotnet-runtime-8.0-bin dotnet-targeting-pack-8.0-bin dotnet-sdk-8.0-bin aspnet-runtime-8.0-bin aspnet-targeting-pack-8.0-bin
 
 # .NET 7 - Expires May 2024
 # yay -S --noconfirm dotnet-runtime-7.0-bin dotnet-targeting-pack-7.0-bin dotnet-sdk-7.0-bin aspnet-runtime-7.0-bin aspnet-targeting-pack-7.0-bin
@@ -448,6 +457,12 @@ flatpak install -y flathub io.github.wereturtle.ghostwriter
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub com.github.alainm23.planner
+
+
+#########################
+# Data Analysis
+#########################
+flatpak install -y flathub org.kde.labplot2
 
 
 #########################
