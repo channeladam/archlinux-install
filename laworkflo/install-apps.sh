@@ -359,6 +359,9 @@ sudo usermod -aG docker adam
 sudo newgrp docker
 sudo systemctl enable --now docker
 
+# Podman
+sudo pacman -S --noconfirm podman
+
 # Docker credential helper - secretservice
 # https://docs.docker.com/engine/reference/commandline/login/#credentials-store
 # https://github.com/docker/docker-credential-helpers
