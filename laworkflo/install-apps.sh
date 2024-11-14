@@ -361,6 +361,7 @@ sudo systemctl enable --now docker
 
 # Podman
 sudo pacman -S --noconfirm podman
+yay -S --noconfirm podman-desktop
 
 # Docker credential helper - secretservice
 # https://docs.docker.com/engine/reference/commandline/login/#credentials-store
