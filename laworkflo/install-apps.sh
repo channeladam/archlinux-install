@@ -320,6 +320,9 @@ yay -S --noconfirm woff-intel-one-mono otf-intel-one-mono ttf-intel-one-mono wof
 yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
 
+# Windsurf
+yay -S --noconfirm windsurf-bin
+
 # Coding Assistants - llama.cpp (use with twinny extension in VSCode)
 yay -S --noconfirm llama.cpp-git
 # 16GB for basekit!
