@@ -316,6 +316,9 @@ yay -S --noconfirm powershell-bin
 # Intel One Mono Font for developers - https://github.com/intel/intel-one-mono
 yay -S --noconfirm woff-intel-one-mono otf-intel-one-mono ttf-intel-one-mono woff2-intel-one-mono
 
+# Microsoft Cascadia Code font - https://github.com/microsoft/cascadia-code
+sudo pacman -S --noconfirm ttf-cascadia-code otf-cascadia-code woff2-cascadia-code
+
 # VSCode - the official MS version is required (as opposed to OSS ‘code’) in order to be able to debug
 yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
