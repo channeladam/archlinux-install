@@ -25,6 +25,9 @@ sudo systemctl enable --now fstrim.timer
 sudo pacman -S --noconfirm flatpak pamac-cli pamac-gtk pamac-flatpak-plugin
 flatpak install -y flathub flatseal
 
+# Portal support for flatpak
+yay -S --noconfirm libportal-qt5 libportal-qt6 libportal-gtk3 libportal-gtk4
+
 # App-Outlet AppImage https://app-outlet.github.io/
 mkdir -p /home/adam/Applications/
 export filename=$(curl -sI https://appoutlet.herokuapp.com/download/appimage | grep 'Location:' | sed -E 's/.*\/releases\/download\/v.*\/(\S*).*$/\1/')
@@ -136,8 +139,14 @@ sudo flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme
 # Desktop Widgets (e.g. Color Picker)
 sudo pacman -S --noconfirm kdeplasma-addons
 
-# KVM - Input Leap - need via yay to have config file loaded correctly on a client - https://github.com/input-leap/input-leap
-yay -S --noconfirm input-leap
+# KVM - Input Leap - not currently available in the Flatpak repository as of 2024/12 version 3.0.2
+# NOTE: The AUR version's server configuration would segfault on me...
+echo
+echo "##################################################################################################"
+echo "Download input from https://github.com/input-leap/input-leap/releases"
+echo "Then install: flatpak install -y ./[downloaded file - e.g. InputLeap_3.0.2_linux_x86_64.flatpak]"
+echo "##################################################################################################"
+echo
 
 # Partition Tools
 sudo pacman -S --noconfirm gparted dosfstools mtools
