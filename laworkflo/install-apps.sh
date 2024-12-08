@@ -272,6 +272,7 @@ git config --global --replace-all credential.helper /usr/bin/git-credential-mana
 
 yay -S --noconfirm github-desktop-bin
 flatpak install -y flathub com.github.git_cola.git-cola 
+flatpak install -y flathub org.gitfourchette.gitfourchette
 
 # .NET Latest
 yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
@@ -324,7 +325,7 @@ yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
 
 # Windsurf
-yay -S --noconfirm windsurf-bin
+yay -S --noconfirm windsurf-latest
 
 # Coding Assistants - llama.cpp (use with twinny extension in VSCode)
 yay -S --noconfirm llama.cpp-git
@@ -467,6 +468,9 @@ flatpak install -y flathub io.github.wereturtle.ghostwriter
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
 flatpak install -y flathub com.github.alainm23.planner
+
+# Finance
+flatpak install -y flathub info.portfolio_performance.PortfolioPerformance
 
 
 #########################
