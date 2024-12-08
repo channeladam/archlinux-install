@@ -137,8 +137,7 @@ sudo flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme
 sudo pacman -S --noconfirm kdeplasma-addons
 
 # KVM - Input Leap - need via yay to have config file loaded correctly on a client - https://github.com/input-leap/input-leap
-# - Need the `inputcapture` version for Wayland
-yay -S --noconfirm input-leap-inputcapture
+yay -S --noconfirm input-leap
 
 # Partition Tools
 sudo pacman -S --noconfirm gparted dosfstools mtools
