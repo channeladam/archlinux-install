@@ -319,6 +319,9 @@ echo "##########################################################################
 echo "NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications. Change Program to: /usr/bin/bash and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'"
 echo "######################################################################################################################"
 
+# netcoredbg - https://github.com/Samsung/netcoredbg (allows debugging .NET Core apps in VSCode clones).
+# yay -S --noconfirm netcoredbg
+
 # PowerShell
 yay -S --noconfirm powershell-bin
 
@@ -332,8 +335,8 @@ sudo pacman -S --noconfirm ttf-cascadia-code otf-cascadia-code woff2-cascadia-co
 yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
 
-# Windsurf
-yay -S --noconfirm windsurf-latest
+# Windsurf (with VSCode Marketplace)
+yay -S --noconfirm windsurf-marketplace
 
 # Coding Assistants - llama.cpp (use with twinny extension in VSCode)
 yay -S --noconfirm llama.cpp-git
