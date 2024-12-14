@@ -336,7 +336,7 @@ yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
 
 # Windsurf (with VSCode Marketplace)
-yay -S --noconfirm windsurf-marketplace
+yay -S --noconfirm windsurf windsurf-marketplace
 
 # Coding Assistants - llama.cpp (use with twinny extension in VSCode)
 yay -S --noconfirm llama.cpp-git
