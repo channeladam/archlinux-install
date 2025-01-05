@@ -431,7 +431,8 @@ flatpak install -y flathub com.github.louis77.tuner
 flatpak install -y flathub com.github.iwalton3.jellyfin-media-player
 
 # Video Players
-flatpak install -y flathub org.videolan.VLC
+# Problems with flatpak VLC playing videos, and VLC is required by other things anyway.
+sudo pacman -S --noconfirm vlc
 flatpak install -y flathub org.bino3d.bino
 flatpak install -y flathub io.mpv.Mpv
 
