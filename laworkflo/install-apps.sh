@@ -446,6 +446,9 @@ flatpak install -y flathub io.github.jliljebl.Flowblade
 flatpak install -y flathub com.ozmartians.VidCutter
 yay -S --noconfirm com.obsproject.Studio
 
+# Books
+flatpak install -y flathub org.kde.arianna
+
 # Camera / Photos
 flatpak install -y flathub com.rawtherapee.RawTherapee
 flatpak install -y flathub org.darktable.Darktable
