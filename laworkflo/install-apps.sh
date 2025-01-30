@@ -233,10 +233,10 @@ sudo systemctl enable --now libvirtd
 # Set the default virtual network to start automatically
 virsh net-autostart default
 
-# Wine
-# NOTE: Run winetricks -> winecfg -> Drives -> and add a T:\ pointing to /mnt/tdrive so that Wine apps can correctly see its free space!
-yay -S --noconfirm wine-staging winetricks
-
+# Bottles / Wine
+# NOTE: Run Bottles and configure winetricks -> winecfg -> Drives -> and add a T:\ pointing to /mnt/tdrive so that Wine apps can correctly see its free space!
+# NOTE: Run Bottles, go into the preferences, and change the default folder to /mnt/data2
+flatpak install -y flathub com.usebottles.bottles
 
 #########################
 # Internet & Communications
