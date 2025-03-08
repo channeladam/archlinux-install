@@ -482,8 +482,12 @@ flatpak install -y flathub net.cozic.joplin_desktop
 flatpak install -y flathub io.github.wereturtle.ghostwriter
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
-flatpak install -y flathub io.github.alainm23.planify
-yay -S --noconfirm projectlibre
+flatpak install -y flathub org.kde.calligra
+
+# Project Management
+sudo pacman -S --noconfirm calligra-plan 
+# yay -S --noconfirm projectlibre
+# flatpak install -y flathub io.github.alainm23.planify
 
 # Finance
 flatpak install -y flathub info.portfolio_performance.PortfolioPerformance
