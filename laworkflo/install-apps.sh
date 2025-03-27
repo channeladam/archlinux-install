@@ -319,6 +319,11 @@ echo "##########################################################################
 echo "NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications. Change Program to: /usr/bin/bash and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'"
 echo "######################################################################################################################"
 
+echo
+echo "######################################################################################################################"
+echo "NOTE: ALSO TURN OFF THE OPERATING SYSTEM'S FILE SEARCH INDEXING FOR YOUR ROOT SOURCE CODE FOLDER."
+echo "######################################################################################################################"
+
 # netcoredbg - https://github.com/Samsung/netcoredbg (allows debugging .NET Core apps in VSCode clones).
 # yay -S --noconfirm netcoredbg
 
@@ -482,10 +487,11 @@ flatpak install -y flathub net.cozic.joplin_desktop
 flatpak install -y flathub io.github.wereturtle.ghostwriter
 flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
-flatpak install -y flathub org.kde.calligra
+# flatpak install -y flathub org.kde.calligra
 
 # Project Management
-sudo pacman -S --noconfirm calligra-plan 
+# sudo pacman -S --noconfirm calligra-plan
+# sudo pacman -S --noconfirm planner
 # yay -S --noconfirm projectlibre
 # flatpak install -y flathub io.github.alainm23.planify
 
