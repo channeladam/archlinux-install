@@ -340,8 +340,8 @@ sudo pacman -S --noconfirm ttf-cascadia-code otf-cascadia-code woff2-cascadia-co
 yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
 
-# Windsurf (with VSCode Marketplace)
-yay -S --noconfirm windsurf windsurf-marketplace
+# Windsurf
+yay -S --noconfirm windsurf
 
 # Coding Assistants - llama.cpp (use with twinny extension in VSCode)
 yay -S --noconfirm llama.cpp-git
