@@ -418,6 +418,10 @@ yay -S --noconfirm azuredatastudio
 sudo pacman -S --noconfirm dbeaver
 # NOTE: flatpak dbeaver cannot open system browser to connect to Azure SqlDb...
 
+# Reverse Engineering
+# https://github.com/rizinorg/cutter
+# flatpak install -y flathub re.rizin.cutter
+
 
 #########################
 # A/V
@@ -460,6 +464,9 @@ flatpak install -y flathub org.darktable.Darktable
 flatpak install -y flathub org.entangle_photo.Manager 
 flatpak install -y flathub org.kde.digikam
 
+# Photogrammetry - https://github.com/Kitware/TeleSculptor
+#flatpak install -y flathub org.telesculptor.TeleSculptor
+
 # Use your android device as a wireless/usb webcam
 yay -S --noconfirm droidcam droidcam-obs-plugin
 
@@ -489,13 +496,20 @@ flatpak install -y flathub org.onlyoffice.desktopeditors
 flatpak install -y flathub org.libreoffice.LibreOffice
 # flatpak install -y flathub org.kde.calligra
 
+#########################
 # Project Management
+#########################
+# GanttProject https://www.ganttproject.biz/ https://github.com/bardsoftware/ganttproject
+# ^ manual download
 # sudo pacman -S --noconfirm calligra-plan
 # sudo pacman -S --noconfirm planner
 # yay -S --noconfirm projectlibre
 # flatpak install -y flathub io.github.alainm23.planify
 
+
+#########################
 # Finance
+#########################
 flatpak install -y flathub info.portfolio_performance.PortfolioPerformance
 
 
@@ -503,6 +517,32 @@ flatpak install -y flathub info.portfolio_performance.PortfolioPerformance
 # Data Analysis
 #########################
 flatpak install -y flathub org.kde.labplot2
+flatpak install -y flathub org.jaspstats.JASP
+flatpak install -y flathub org.squey.Squey  # https://squey.org
+
+
+#########################
+# Data Privacy
+#########################
+# Data Anonymization
+# flatpak install -y flathub org.deidentifier.arx
+
+
+#########################
+# Languages & Grammar
+#########################
+# flatpak install -y flathub org.kde.kiten # Japanese
+flatpak install -y flathub dev.mufeed.Wordbook  # https://github.com/mufeedali/Wordbook
+flatpak install -y flathub io.github.quantum_mutnauq.fast_reader_gtk # Fast Reader
+
+
+########################
+# Medical
+########################
+# 3D medical imaging reconstruction software
+# flatpak install -y flathub br.gov.cti.invesalius
+# Blood Pressure
+flatpak install -y flathub page.codeberg.lazyt.ubpm
 
 
 #########################
