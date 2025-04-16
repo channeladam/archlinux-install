@@ -330,6 +330,9 @@ echo "##########################################################################
 # PowerShell
 yay -S --noconfirm powershell-bin
 
+# Inter Font
+sudo pacman -S --noconfirm inter-font
+
 # Intel One Mono Font for developers - https://github.com/intel/intel-one-mono
 yay -S --noconfirm woff-intel-one-mono otf-intel-one-mono ttf-intel-one-mono woff2-intel-one-mono
 
