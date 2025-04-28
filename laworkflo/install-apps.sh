@@ -18,6 +18,9 @@ sudo pacman -S --noconfirm nvme-cli smartmontools
 sudo pacman -S --noconfirm util-linux
 sudo systemctl enable --now fstrim.timer
 
+# Auto-load the SCSI Generic Kernel Module
+sudo echo sg > /etc/modules-load.d/sg.conf
+
 
 #########################
 # Application Managers
@@ -348,16 +351,17 @@ sudo pacman -S --noconfirm typescript eslint
 yay -S --noconfirm windsurf
 
 # Coding Assistants - llama.cpp (use with twinny extension in VSCode)
-yay -S --noconfirm llama.cpp-git
+#yay -S --noconfirm llama.cpp-git
 # 16GB for basekit!
-sudo pacman -S --noconfirm intel-oneapi-basekit
+#sudo pacman -S --noconfirm intel-oneapi-basekit
 # NOTE: see https://github.com/ggerganov/llama.cpp/blob/master/README-sycl.md :
-echo '' >> ~/.zshrc
-echo '# Initialise variables for Intel oneapi / SYCL' >> ~/.zshrc
-echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.zshrc
-echo '' >> ~/.bashrc
-echo '# Initialise variables for Intel oneapi / SYCL' >> ~/.bashrc
-echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
+#echo '' >> ~/.zshrc
+#echo '# Initialise variables for Intel oneapi / SYCL' >> ~/.zshrc
+#echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.zshrc
+#echo '' >> ~/.bashrc
+#echo '# Initialise variables for Intel oneapi / SYCL' >> ~/.bashrc
+#echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
+
 
 # Postman
 flatpak install -y flathub com.getpostman.Postman
