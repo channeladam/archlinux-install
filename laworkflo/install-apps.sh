@@ -42,7 +42,7 @@ sudo pacman -S --noconfirm downgrade
 
 # Make websites appear as their own apps - https://github.com/linuxmint/webapp-manager
 # Use with Chromium, not FireFox! (buggy)
-yay -S --noconfirm webapp-manager
+sudo pacman -S --noconfirm webapp-manager
 
 
 #########################
