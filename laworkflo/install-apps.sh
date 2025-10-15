@@ -1,5 +1,32 @@
 #!/bin/bash
 
+#
+#
+#
+function download_latest_appimage_from_github() {
+  local owner="$1"
+  local repo="$2"
+  local filenamePrefix="$3"
+
+  local url
+  url=$(curl -s https://api.github.com/repos/"$owner"/"$repo"/releases/latest \
+    | jq -r --arg re "(x86_64|amd64).*\.AppImage$" '.assets[] | select(.name|test($re)) | .browser_download_url' \
+    | head -n1)
+
+  if [ -z "$url" ] || [ "$url" = "null" ]; then
+    echo "##### No matching AppImage found for $owner/$repo #####" >&2
+    return 1
+  fi
+
+  local dest_dir="${HOME}/Applications"
+  mkdir -p "$dest_dir"
+  
+  local dest="${dest_dir}/${filenamePrefix}.appimage"
+  curl -fL -o "$dest" "$url"
+  chmod +x "$dest"
+}
+
+# Update everything that already is installed
 sudo pacman -Syu --noconfirm
 
 ########################
@@ -31,11 +58,8 @@ flatpak install -y flathub flatseal
 # Portal support for flatpak
 yay -S --noconfirm libportal-qt5 libportal-qt6 libportal-gtk3 libportal-gtk4
 
-# App-Outlet AppImage https://app-outlet.github.io/
-mkdir -p /home/adam/Applications/
-export filename=$(curl -sI https://appoutlet.herokuapp.com/download/appimage | grep 'Location:' | sed -E 's/.*\/releases\/download\/v.*\/(\S*).*$/\1/')
-curl -JLO https://appoutlet.herokuapp.com/download/appimage -o /home/adam/Applications/$filename
-chmod +x ./$filename
+# Gear Lever (manage AppImages)
+flatpak install -y flathub it.mijorus.gearlever
 
 # Downgrade
 sudo pacman -S --noconfirm downgrade
@@ -283,8 +307,11 @@ yay -S --noconfirm git-credential-manager-bin
 git config --global --replace-all credential.helper /usr/bin/git-credential-manager
 
 yay -S --noconfirm github-desktop-bin
-flatpak install -y flathub com.github.git_cola.git-cola 
+flatpak install -y flathub com.github.git_cola.git-cola
 flatpak install -y flathub org.gitfourchette.gitfourchette
+
+# SourceGIT AppImage
+download_latest_appimage_from_github "sourcegit-scm" "sourcegit" "sourcegit"
 
 # .NET Latest
 # yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
