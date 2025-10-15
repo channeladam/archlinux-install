@@ -287,19 +287,25 @@ flatpak install -y flathub com.github.git_cola.git-cola
 flatpak install -y flathub org.gitfourchette.gitfourchette
 
 # .NET Latest
-yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+# yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
+sudo pacman -S --noconfirm dotnet-host dotnet-runtime dotnet-targeting-pack dotnet-sdk aspnet-runtime aspnet-targeting-pack
+
+# .NET 9 
+sudo pacman -S --noconfirm dotnet-runtime-9.0 dotnet-targeting-pack-9.0 dotnet-sdk-9.0 aspnet-runtime-9.0 aspnet-targeting-pack-9.0
 
 # .NET 8 LTS
-yay -S --noconfirm dotnet-runtime-8.0-bin dotnet-targeting-pack-8.0-bin dotnet-sdk-8.0-bin aspnet-runtime-8.0-bin aspnet-targeting-pack-8.0-bin
+# yay -S --noconfirm dotnet-runtime-8.0-bin dotnet-targeting-pack-8.0-bin dotnet-sdk-8.0-bin aspnet-runtime-8.0-bin aspnet-targeting-pack-8.0-bin
+sudo pacman -S --noconfirm dotnet-runtime-8.0 dotnet-targeting-pack-8.0 dotnet-sdk-8.0 aspnet-runtime-8.0 aspnet-targeting-pack-8.0
 
 # .NET 7 - Expires May 2024
 # yay -S --noconfirm dotnet-runtime-7.0-bin dotnet-targeting-pack-7.0-bin dotnet-sdk-7.0-bin aspnet-runtime-7.0-bin aspnet-targeting-pack-7.0-bin
 
 # .NET 6 LTS
-yay -S --noconfirm dotnet-runtime-6.0-bin dotnet-targeting-pack-6.0-bin dotnet-sdk-6.0-bin aspnet-runtime-6.0-bin aspnet-targeting-pack-6.0-bin
+# yay -S --noconfirm dotnet-runtime-6.0-bin dotnet-targeting-pack-6.0-bin dotnet-sdk-6.0-bin aspnet-runtime-6.0-bin aspnet-targeting-pack-6.0-bin
+sudo pacman -S --noconfirm dotnet-runtime-6.0 dotnet-targeting-pack-6.0 dotnet-sdk-6.0 aspnet-runtime-6.0 aspnet-targeting-pack-6.0
 
 # .NET Older
-yay -S --noconfirm dotnet-runtime-2.2 dotnet-runtime-3.1
+# yay -S --noconfirm dotnet-runtime-2.2 dotnet-runtime-3.1
 # yay -S --noconfirm dotnet-runtime-5.0-bin
 
 # International Components for Unicode (ICU) 
@@ -307,20 +313,25 @@ sudo pacman -S --noconfirm icu
 
 # Ensure latest International Components for Unicode (ICU) library is used by .NET
 echo '' >> ~/.zshrc
-echo '# Ensure .NET uses the latest ICU version' >> ~/.zshrc
+echo '# Ensure .NET <= 9 uses the latest ICU version' >> ~/.zshrc
 echo 'export CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.zshrc
+echo '# Ensure .NET >= 10 uses the latest ICU version' >> ~/.zshrc
+echo 'export DOTNET_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.zshrc
 
 echo '' >> ~/.bashrc
-echo '# Ensure .NET uses the latest ICU version' >> ~/.bashrc
+echo '# Ensure .NET <= 9 uses the latest ICU version' >> ~/.bashrc
 echo 'export CLR_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.bashrc
+echo '# Ensure .NET >= 10 uses the latest ICU version' >> ~/.bashrc
+echo 'export DOTNET_ICU_VERSION_OVERRIDE=$(icu-config --version)' >> ~/.bashrc
 
 # NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications.
 # This is because when VSCode is launched via a launcher (the .desktop file),
 # it is not running from within a bash or zsh environment, and doesn't have that environment.
 # Change Program to: /usr/bin/bash
-# and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'
+# and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version`:DOTNET_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'
+# Breaking change in .NET 10 - https://learn.microsoft.com/en-au/dotnet/core/compatibility/globalization/10.0/version-override
 echo "######################################################################################################################"
-echo "NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications. Change Program to: /usr/bin/bash and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'"
+echo "NOTE: YOU ALSO NEED TO EDIT THE PROPERTIES OF Visual Studio Code's code.desktop file in /usr/share/applications. Change Program to: /usr/bin/bash and Arguments to: -c 'CLR_ICU_VERSION_OVERRIDE=`icu-config --version`:DOTNET_ICU_VERSION_OVERRIDE=`icu-config --version` /usr/bin/code --unity-launch %F'"
 echo "######################################################################################################################"
 
 echo
@@ -363,11 +374,17 @@ yay -S --noconfirm windsurf
 #echo '# Initialise variables for Intel oneapi / SYCL' >> ~/.bashrc
 #echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 
+# Cherry Studio
+flatpak install -y flathub com.cherry_ai.CherryStudio 
+
 
 # Postman
 flatpak install -y flathub com.getpostman.Postman
 
-# Python
+# Python - UV
+sudo pacman -S --noconfirm python-uv
+
+# Python - Old
 sudo pacman -S --noconfirm python python-pip
 sudo pacman -S --noconfirm pyenv
 yay -S --noconfirm pyenv-virtualenv
