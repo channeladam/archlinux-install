@@ -332,6 +332,7 @@ sudo pacman -S --noconfirm dotnet-runtime-8.0 dotnet-targeting-pack-8.0 dotnet-s
 sudo pacman -S --noconfirm dotnet-runtime-6.0 dotnet-targeting-pack-6.0 dotnet-sdk-6.0 aspnet-runtime-6.0 aspnet-targeting-pack-6.0
 
 # .NET Older
+sudo pacman -S --noconfirm netstandard-targeting-pack
 # yay -S --noconfirm dotnet-runtime-2.2 dotnet-runtime-3.1
 # yay -S --noconfirm dotnet-runtime-5.0-bin
 
