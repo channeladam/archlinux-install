@@ -74,6 +74,12 @@ brew install -v gcc
 
 # Gear Lever (manage AppImages)
 flatpak install -y flathub it.mijorus.gearlever
+echo '' >> ~/.bashrc
+echo '# Gear Lever' >> ~/.bashrc
+echo "alias gearlever='flatpak run it.mijorus.gearlever'" >> ~/.bashrc
+echo '' >> ~/.zshrc
+echo '# Gear Lever' >> ~/.zshrc
+echo "alias gearlever='flatpak run it.mijorus.gearlever'" >> ~/.zshrc
 
 # Downgrade
 sudo pacman -S --noconfirm downgrade
