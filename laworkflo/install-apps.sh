@@ -32,7 +32,7 @@ sudo pacman -Syu --noconfirm
 ########################
 # Compilation tools
 ########################
-sudo pacman -S --noconfirm ccache
+sudo pacman -S --noconfirm base-devel ccache
 
 #########################
 # Disk tools
@@ -56,7 +56,21 @@ sudo pacman -S --noconfirm flatpak pamac-cli pamac-gtk pamac-flatpak-plugin
 flatpak install -y flathub flatseal
 
 # Portal support for flatpak
-yay -S --noconfirm libportal-qt5 libportal-qt6 libportal-gtk3 libportal-gtk4
+sudo pacman -S --noconfirm libportal-qt5 libportal-qt6 libportal-gtk3 libportal-gtk4
+
+# Homebrew -  https://docs.brew.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+echo '' >> ~/.bashrc
+echo '# Homebrew' >> ~/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+
+echo '' >> ~/.zshrc
+echo '# Homebrew' >> ~/.zshrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.zshrc
+
+brew install -v gcc
 
 # Gear Lever (manage AppImages)
 flatpak install -y flathub it.mijorus.gearlever
@@ -238,12 +252,12 @@ flatpak install -y flathub org.kde.ktimetracker
 flatpak install -y flathub org.qbittorrent.qBittorrent
 flatpak install -y flathub org.nickvision.tubeconverter
 flatpak install -y flathub io.freetubeapp.FreeTube
-yay -S --noconfirm tartube
+# yay -S --noconfirm tartube
 
 # Webcam
 # NOTE: also need the linux headers installed to run fake-background
 sudo pacman -S --noconfirm guvcview-qt
-yay -S --noconfirm fake-background-webcam-git python-pyinotify inotify-tools
+# yay -S --noconfirm fake-background-webcam-git python-pyinotify inotify-tools
 flatpak install -y flathub io.github.webcamoid.Webcamoid
 # pip install inotify_simple configargparse cv2
 
@@ -293,7 +307,7 @@ flatpak install -y flathub us.zoom.Zoom
 # Thunderbird and calendar integration
 sudo pacman -S --noconfirm thunderbird 
 # O365 / Exchange functionality
-flatpak install -y flathub org.davmail.DavMail
+# flatpak install -y flathub org.davmail.DavMail
 
 
 #########################
@@ -317,7 +331,7 @@ download_latest_appimage_from_github "sourcegit-scm" "sourcegit" "sourcegit"
 # yay -S --noconfirm dotnet-host-bin dotnet-runtime-bin dotnet-targeting-pack-bin dotnet-sdk-bin aspnet-runtime-bin aspnet-targeting-pack-bin
 sudo pacman -S --noconfirm dotnet-host dotnet-runtime dotnet-targeting-pack dotnet-sdk aspnet-runtime aspnet-targeting-pack
 
-# .NET 9 
+# .NET 9
 sudo pacman -S --noconfirm dotnet-runtime-9.0 dotnet-targeting-pack-9.0 dotnet-sdk-9.0 aspnet-runtime-9.0 aspnet-targeting-pack-9.0
 
 # .NET 8 LTS
@@ -405,6 +419,8 @@ yay -S --noconfirm windsurf
 # Cherry Studio
 flatpak install -y flathub com.cherry_ai.CherryStudio 
 
+# OpenCode
+brew install -v opencode
 
 # Postman
 flatpak install -y flathub com.getpostman.Postman
@@ -461,16 +477,17 @@ sudo pacman -S --noconfirm nodejs
 # wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
 # Azure Tools (needs Python etc installed first)
-yay -S --noconfirm azure-cli
+# yay -S --noconfirm azure-cli
 
-yay -S --noconfirm azure-functions-core-tools-bin
-yay -S --noconfirm storageexplorer
-yay -S --noconfirm bicep-bin
+# yay -S --noconfirm azure-functions-core-tools-bin
+# yay -S --noconfirm storageexplorer
+# yay -S --noconfirm bicep-bin
 
 # Database
-yay -S --noconfirm azuredatastudio
+# yay -S --noconfirm azuredatastudio
 sudo pacman -S --noconfirm dbeaver
 # NOTE: flatpak dbeaver cannot open system browser to connect to Azure SqlDb...
+# flatpak install -y flathub io.dbeaver.DBeaverCommunity
 
 # Reverse Engineering
 # https://github.com/rizinorg/cutter
@@ -507,7 +524,9 @@ flatpak install -y flathub org.ardour.Ardour
 flatpak install -y flathub org.kde.kdenlive
 flatpak install -y flathub io.github.jliljebl.Flowblade
 flatpak install -y flathub com.ozmartians.VidCutter
-yay -S --noconfirm com.obsproject.Studio
+# pacman -S --noconfirm obs-studio droidcam-obs-plugin
+# Droidcam - Use your android device as a wireless/usb webcam
+flatpak install -y flathub com.obsproject.Studio com.obsproject.Studio.Plugin.DroidCam
 
 # Books
 flatpak install -y flathub org.kde.arianna
@@ -520,9 +539,6 @@ flatpak install -y flathub org.kde.digikam
 
 # Photogrammetry - https://github.com/Kitware/TeleSculptor
 #flatpak install -y flathub org.telesculptor.TeleSculptor
-
-# Use your android device as a wireless/usb webcam
-yay -S --noconfirm droidcam droidcam-obs-plugin
 
 #########################
 # Graphics
