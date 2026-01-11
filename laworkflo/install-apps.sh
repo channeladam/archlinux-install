@@ -426,7 +426,8 @@ yay -S --noconfirm windsurf
 flatpak install -y flathub com.cherry_ai.CherryStudio 
 
 # OpenCode
-brew install -v opencode
+brew install -v anomalyco/tap/opencode
+brew install -v opencode-desktop
 
 # Postman
 flatpak install -y flathub com.getpostman.Postman
@@ -475,6 +476,15 @@ EOF
 
 # nodejs
 sudo pacman -S --noconfirm nodejs
+
+# fnm
+brew install -v fnm
+echo '' >> ~/.bashrc
+echo '# fnm' >> ~/.bashrc
+echo 'eval "$(fnm env --use-on-cd --shell bash)"' >> ~/.bashrc
+echo '' >> ~/.zshrc
+echo '# fnm' >> ~/.zshrc
+echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
 
 # Azure Artifacts Credential Provider
 # NOTE: This SHOULD now be replaced by git-credential-manager...
