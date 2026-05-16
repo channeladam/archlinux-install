@@ -139,7 +139,7 @@ sudo pacman -S --noconfirm wireguard-tools
 #########################
 
 # Pipewire, WirePlumber
-sudo pacman -S --noconfirm pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-v4l2 gst-plugin-pipewire wireplumber
+sudo pacman -S --noconfirm pipewire pipewire-alsa pipewire-pulse pipewire-jack pipewire-v4l2 pipewire-libcamera gst-plugin-pipewire wireplumber
 
 # JamesDSP and easyeffects + Linux Studio Plugins (for Pipewire)
 flatpak install -y flathub me.timschneeberger.jdsp4linux com.github.wwmm.easyeffects org.freedesktop.LinuxAudio.Plugins.LSP
@@ -262,7 +262,8 @@ flatpak install -y flathub io.freetubeapp.FreeTube
 
 # Webcam
 # NOTE: also need the linux headers installed to run fake-background
-sudo pacman -S --noconfirm guvcview-qt
+# NOTE: also can use OBS Studio - see that further below
+sudo pacman -S --noconfirm cameractrls guvcview-qt plasma-camera
 # yay -S --noconfirm fake-background-webcam-git python-pyinotify inotify-tools
 flatpak install -y flathub io.github.webcamoid.Webcamoid
 # pip install inotify_simple configargparse cv2
