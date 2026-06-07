@@ -525,7 +525,7 @@ sudo pacman -S --noconfirm dbeaver
 flatpak install -y flathub com.github.louis77.tuner
 
 # Jellyfin
-flatpak install -y flathub com.github.iwalton3.jellyfin-media-player
+flatpak install -y flathub org.jellyfin.JellyfinDesktop
 
 # Video Players
 # Problems with flatpak VLC playing videos, and VLC is required by other things anyway.
