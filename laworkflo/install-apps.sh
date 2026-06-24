@@ -407,9 +407,8 @@ sudo pacman -S --noconfirm ttf-cascadia-code otf-cascadia-code woff2-cascadia-co
 yay -S --noconfirm visual-studio-code-bin
 sudo pacman -S --noconfirm typescript eslint
 
-# Windsurf
-# yay -S --noconfirm windsurf windsurf-marketplace
-yay -S --noconfirm windsurf
+# Devin
+brew install devin-cli
 
 # Coding Assistants - llama.cpp (use with twinny extension in VSCode)
 #yay -S --noconfirm llama.cpp-git
@@ -424,7 +423,7 @@ yay -S --noconfirm windsurf
 #echo 'source /opt/intel/oneapi/setvars.sh' >> ~/.bashrc
 
 # Cherry Studio
-flatpak install -y flathub com.cherry_ai.CherryStudio 
+# flatpak install -y flathub com.cherry_ai.CherryStudio 
 
 # OpenCode
 brew install -v anomalyco/tap/opencode
@@ -462,7 +461,14 @@ sudo systemctl enable --now docker
 
 # Podman
 sudo pacman -S --noconfirm podman
-yay -S --noconfirm podman-desktop-bin
+flatpak install flathub io.podman_desktop.PodmanDesktop
+sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$(whoami)"
+podman system migrate
+
+# Cockpit
+# https://cockpit-project.org and locally http://localhost:9090/
+sudo pacman -S --noconfirm cockpit cockpit-docker cockpit-files cockpit-machines cockpit-packagekit cockpit-podman cockpit-storaged
+systemctl enable --now cockpit.socket
 
 # Docker credential helper - secretservice
 # https://docs.docker.com/engine/reference/commandline/login/#credentials-store
