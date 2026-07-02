@@ -274,7 +274,7 @@ flatpak install -y flathub io.github.webcamoid.Webcamoid
 #########################
 
 # KVM - As per https://wiki.archlinux.org/index.php/Libvirt#Server, install Virtual Machine Manager:
-sudo pacman -S --noconfirm libvirt qemu samba virt-manager ebtables dnsmasq bridge-utils
+sudo pacman -S --noconfirm libvirt qemu swtpm samba virt-manager ebtables dnsmasq bridge-utils
 
 # Enable and start the libvirtd daemon
 sudo systemctl enable --now libvirtd
