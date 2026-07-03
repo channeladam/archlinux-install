@@ -155,6 +155,9 @@ flatpak install -y flathub me.timschneeberger.jdsp4linux com.github.wwmm.easyeff
 #      - https://github.com/ArtifexSoftware/urw-base35-fonts/tree/master
 sudo pacman -S --noconfirm gsfonts noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
+# Scripting tools
+sudo pacman -S --noconfirm kdialog
+
 # Font editing
 sudo pacman -S --noconfirm fontforge
 
@@ -171,13 +174,6 @@ yay -S --noconfirm thunar-sendto-clamtk
 # Password manager
 flatpak install -y flathub org.keepassxc.KeePassXC
 
-# Remmina - use either flatpak or yay for the local microphone to work - not sudo pacman.
-flatpak install -y flathub org.remmina.Remmina
-
-# Virt-viewer for Proxmox Spice connections
-flatpak install -y flathub org.virt_manager.virt-viewer
-echo 'NOTE: You will need to create a .desktop file containing "exec=flatpak run org.virt_manager.virt-viewer"'
-
 # Materia Dark Theme
 sudo pacman -S --noconfirm materia-gtk-theme
 # Flatpak themes must be exactly the same as currently configured on the host...
@@ -186,15 +182,6 @@ sudo flatpak install -y flathub org.gtk.Gtk3theme.Materia-dark org.gtk.Gtk3theme
 
 # Desktop Widgets (e.g. Color Picker)
 sudo pacman -S --noconfirm kdeplasma-addons
-
-# KVM - Input Leap - not currently available in the Flatpak repository as of 2024/12 version 3.0.2
-# NOTE: The AUR version's server configuration would segfault on me...
-echo
-echo "##################################################################################################"
-echo "Download input from https://github.com/input-leap/input-leap/releases"
-echo "Then install: flatpak install -y ./[downloaded file - e.g. InputLeap_3.0.2_linux_x86_64.flatpak]"
-echo "##################################################################################################"
-echo
 
 # Partition Tools
 sudo pacman -S --noconfirm gparted dosfstools mtools
@@ -269,9 +256,9 @@ flatpak install -y flathub io.github.webcamoid.Webcamoid
 # pip install inotify_simple configargparse cv2
 
 
-#########################
-# Virtual Machines
-#########################
+################################################
+# Virtual Machines / Remote Desktop Connections
+################################################
 
 # KVM - As per https://wiki.archlinux.org/index.php/Libvirt#Server, install Virtual Machine Manager:
 sudo pacman -S --noconfirm libvirt qemu swtpm samba virt-manager ebtables dnsmasq bridge-utils
@@ -281,6 +268,29 @@ sudo systemctl enable --now libvirtd
 
 # Set the default virtual network to start automatically
 virsh net-autostart default
+
+# xfreerdp3 for RDP with support for multiple monitors, audio and camera passthrough on Wayland.
+sudo pacman -S --noconfirm freerdp
+
+# Remmina - use either flatpak or yay for the local microphone to work - not sudo pacman.
+flatpak install -y flathub org.remmina.Remmina
+
+# Virt-viewer for Proxmox Spice connections
+flatpak install -y flathub org.virt_manager.virt-viewer
+echo
+echo "##################################################################################################"
+echo 'NOTE: You will need to create a .desktop file containing "exec=flatpak run org.virt_manager.virt-viewer"'
+echo "##################################################################################################"
+echo
+
+# KVM - Input Leap - not currently available in the Flatpak repository as of 2024/12 version 3.0.2
+# NOTE: The AUR version's server configuration would segfault on me...
+echo
+echo "##################################################################################################"
+echo "Download input from https://github.com/input-leap/input-leap/releases"
+echo "Then install: flatpak install -y ./[downloaded file - e.g. InputLeap_3.0.2_linux_x86_64.flatpak]"
+echo "##################################################################################################"
+echo
 
 # Bottles / Wine
 # NOTE: Run Bottles and configure winetricks -> winecfg -> Drives -> and add a T:\ pointing to /mnt/tdrive so that Wine apps can correctly see its free space!
